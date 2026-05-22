@@ -388,4 +388,17 @@ footer {
         flex-direction: column;
         gap: 1rem;
     }
+
+    .app-screenshot {
+    width: 280px; /* Telefon ekranı genişliği için ideal boyut, isterseniz artırabilirsiniz */
+    max-width: 100%;
+    border-radius: 35px; /* Köşeleri modern şekilde yuvarlatır */
+    box-shadow: 0 25px 50px rgba(2, 43, 105, 0.2); /* Sitenin temasına uygun şık bir gölge */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.app-screenshot:hover {
+    transform: translateY(-10px) scale(1.03); /* Fareyle üzerine gelince hafifçe havaya kalkar ve büyür */
+    box-shadow: 0 35px 60px rgba(0, 181, 205, 0.3); /* Üzerine gelince gölgesi parlar */
+}
 }
