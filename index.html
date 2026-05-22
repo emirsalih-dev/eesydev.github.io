@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EESY Dev | Make it EESY</title>
+    <meta name="description" content="EESY Dev - Mobil Uygulama ve Oyun Geliştirme. 3D Tesbih ve Zikirmatik Google Play'de yayında.">
+    <!-- Modern Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Arka plan efektleri (Hareketli Gradient Renkler) -->
+    <div class="background-effects">
+        <div class="glow-circle blue"></div>
+        <div class="glow-circle cyan"></div>
+    </div>
+
+    <!-- Navigasyon -->
+    <nav class="navbar">
+        <div class="logo">
+            <!-- Gerçek logonuzu eklemek için alttaki satırı aktif edebilirsiniz -->
+            <!-- <img src="logo.png" alt="EESY Dev Logo"> -->
+            <span class="logo-eesy">EESY</span> <span class="logo-dev">DEV</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Ana Sayfa</a>
+            <a href="#projects">Projeler</a>
+            <a href="https://eesydev.taplink.bio" target="_blank" class="nav-btn">Tüm Bağlantılar</a>
+        </div>
+    </nav>
+
+    <!-- Ana İçerik -->
+    <main>
+        <!-- Kahraman (Hero) Bölümü -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Make it <span class="text-gradient">EESY</span></h1>
+                <p class="hero-subtitle">Modern, kullanıcı dostu ve profesyonel mobil uygulamalar geliştiriyoruz. Geleceğin dijital deneyimlerini bugünden inşa edin.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Projelerimizi İncele</a>
+                    <a href="https://eesydev.taplink.bio" target="_blank" class="btn btn-secondary">İletişime Geç</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projeler Bölümü -->
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">Öne Çıkan <span class="text-gradient">Projemiz</span></h2>
+            
+            <div class="project-card">
+                <div class="project-info">
+                    <div class="project-badge">Google Play'de Yayında!</div>
+                    <h3>3D Tesbih ve Zikirmatik</h3>
+                    <p>Gerçekçi 3D deneyimiyle tasarlanmış, kullanıcı dostu ve modern zikirmatik uygulaması. Günlük ibadetlerinizi kolayca takip edin. Hemen indirin ve kullanmaya başlayın.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.eesydev.zikirmatik" target="_blank" class="play-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play'den Alın">
+                    </a>
+                </div>
+                <div class="project-visual">
+                    <!-- Uygulamanızın ekran görüntüsünü bu kısıma ekleyebilirsiniz -->
+                    <div class="mockup-placeholder">
+                        <div class="mockup-screen">
+                            <span class="mockup-text">3D Tesbih<br>Uygulama Görseli</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Alt Bilgi -->
+    <footer>
+        <p>&copy; 2024 EESY Dev. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Aşağı kaydırma (Scroll) ve Giriş Animasyonları Scripti -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            const elementsToAnimate = document.querySelectorAll('.hero-content, .project-card, .section-title');
+            elementsToAnimate.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
