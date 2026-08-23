@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sajda — Hesap Silme / Delete Your Account</title>
+<style>
+  :root {
+    --bg: #FAF3DD;
+    --card: #FFFFFF;
+    --text: #232B38;
+    --muted: #696D7D;
+    --accent: #35726D;
+    --line: #C8D5B9;
+    --chip: #C8D5B9;
+    --warn: #B3523A;
+    --on-warn: #FDF6E7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12161C;
+      --card: #1C222B;
+      --text: #F2F4F7;
+      --muted: #9AA0B4;
+      --accent: #74BDB8;
+      --line: #3A4A40;
+      --chip: #3A4A40;
+      --warn: #A8543E;
+      --on-warn: #F7EDE6;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 32px 20px 64px;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 34px 0 10px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .meta { color: var(--muted); font-size: 14px; margin: 0; }
+  a { color: var(--accent); }
+  ol, ul { padding-left: 22px; }
+  li { margin: 7px 0; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin: 20px 0;
+  }
+  .switch {
+    display: inline-block;
+    background: var(--chip);
+    color: var(--text);
+    border-radius: 14px;
+    padding: 7px 14px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .warn {
+    background: var(--warn);
+    color: var(--on-warn);
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin: 20px 0;
+  }
+  .warn a { color: var(--on-warn); }
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  .path { font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Sajda — Hesabını silme</h1>
+<p class="meta">Uygulama: <strong>Sajda</strong> (<code>com.eesydev.sajda</code>) · Geliştirici: EESY Dev · Son güncelleme: 23 Ağustos 2026</p>
+<a class="switch" href="#english">English version ↓</a>
+
+<div class="warn">
+  Hesap silme <strong>geri alınamaz</strong>. Silinen katkıların geri getirilemez.
+</div>
+
+<h2>Yol 1 — Uygulamanın içinden (anında)</h2>
+<ol>
+  <li>Sajda'yı aç.</li>
+  <li>Haritanın sol üstündeki yuvarlak düğmeyle <span class="path">Profil</span> ekranını aç.</li>
+  <li>Sayfanın en altındaki <span class="path">Hesap</span> başlığına in.</li>
+  <li><span class="path">Hesabımı sil</span>'e dokun.</li>
+  <li>E-posta ile kayıtlıysan güvenlik için şifreni gir. Anonim kullanıyorsan şifre sorulmaz.</li>
+  <li><span class="path">Evet, hesabımı sil</span>'i onayla.</li>
+</ol>
+<p>İşlem birkaç saniye sürer ve biter bitmez hesabın gitmiş olur.</p>
+
+<h2>Yol 2 — E-posta ile talep</h2>
+<p>Uygulamaya erişemiyorsan (telefonu kaybettiysen, uygulamayı sildiysen) talebini bize yaz:</p>
+<div class="card">
+  <p><strong>Adres:</strong> <a href="mailto:eesydev@gmail.com?subject=Sajda%20hesap%20silme%20talebi">eesydev@gmail.com</a><br>
+  <strong>Konu:</strong> Sajda hesap silme talebi</p>
+  <p>Mesajına hesabının <strong>e-posta adresini</strong> ekle. Hesabını doğrulayabilmemiz için talebi kayıtlı e-posta adresinden göndermen gerekir.</p>
+  <p class="meta">Talepleri <strong>30 gün</strong> içinde sonuçlandırırız.</p>
+</div>
+<p><strong>Anonim hesaplar e-postayla silinemez.</strong> Anonim bir hesabın kimliği yalnızca o cihazda durur ve bize onu bulmamızı sağlayacak hiçbir bilgi ulaşmaz — bu bilinçli bir tasarım. Anonim hesap ancak uygulama içinden (Yol 1) silinebilir.</p>
+
+<h2>Silinen veriler</h2>
+<ul>
+  <li>Hesabın ve giriş bilgilerin (Firebase Authentication kaydı)</li>
+  <li>Profil kaydın: e-posta, görünen ad, kayıt tarihi</li>
+  <li>Haritaya eklediğin bütün noktalar — üzerlerindeki yorum ve doğrulamalarla birlikte</li>
+  <li>Başkalarının noktalarına yazdığın yorumlar (o noktanın puan ortalamasından da düşülür)</li>
+  <li>Yaptığın bütün doğrulamalar (o noktaların güven puanından da düşülür) ve kaydedilmiş koordinatların</li>
+  <li>Google kayıtları için gönderdiğin şikâyetler</li>
+  <li>Açtığın cemaat çağrıları; katıldığın çağrılardan da kimliğin çıkarılır</li>
+</ul>
+
+<h2>Silinmeyen veriler</h2>
+<ul>
+  <li><strong>Çökme kayıtları.</strong> Firebase Crashlytics'e giden teknik hata dökümleri hesabına bağlı değildir ve 90 gün sonra kendiliğinden düşer.</li>
+  <li><strong>Başkalarının senin eklediğin noktaya yazdıkları.</strong> Nokta silindiği için onlar da gider — ama bunlar senin verin değil, o kullanıcıların verisidir.</li>
+</ul>
+<p class="meta">Yedeklerden tamamen çıkması en fazla 30 gün sürebilir.</p>
+
+<h2>Silmek yerine</h2>
+<p>Yalnızca eklediğin bir noktayı kaldırmak istiyorsan hesabını silmene gerek yok: o noktanın detay ekranından tek başına silebilirsin.</p>
+
+<h1 id="english" style="margin-top:56px;">Sajda — Deleting your account</h1>
+<p class="meta">App: <strong>Sajda</strong> (<code>com.eesydev.sajda</code>) · Developer: EESY Dev · Last updated: 23 August 2026</p>
+
+<div class="warn">
+  Account deletion is <strong>permanent</strong>. Deleted contributions cannot be restored.
+</div>
+
+<h2>Option 1 — From inside the app (immediate)</h2>
+<ol>
+  <li>Open Sajda.</li>
+  <li>Tap the round button at the top left of the map to open <span class="path">Profile</span>.</li>
+  <li>Scroll to the <span class="path">Account</span> section at the bottom.</li>
+  <li>Tap <span class="path">Delete my account</span>.</li>
+  <li>If you signed up with an email, enter your password. Anonymous accounts are not asked for one.</li>
+  <li>Confirm with <span class="path">Yes, delete my account</span>.</li>
+</ol>
+<p>It takes a few seconds, and your account is gone as soon as it finishes.</p>
+
+<h2>Option 2 — Request by email</h2>
+<p>If you cannot reach the app — lost phone, app uninstalled — write to us:</p>
+<div class="card">
+  <p><strong>Address:</strong> <a href="mailto:eesydev@gmail.com?subject=Sajda%20account%20deletion%20request">eesydev@gmail.com</a><br>
+  <strong>Subject:</strong> Sajda account deletion request</p>
+  <p>Include the <strong>email address of your account</strong>. Send the request from that same address so we can verify it is yours.</p>
+  <p class="meta">We action requests within <strong>30 days</strong>.</p>
+</div>
+<p><strong>Anonymous accounts cannot be deleted by email.</strong> An anonymous identity lives only on that device and nothing reaches us that would let us find it — that is deliberate. An anonymous account can only be deleted from inside the app (Option 1).</p>
+
+<h2>What is deleted</h2>
+<ul>
+  <li>Your account and sign-in details (the Firebase Authentication record)</li>
+  <li>Your profile record: email, display name, sign-up date</li>
+  <li>Every place you added to the map, along with the reviews and verifications left on them</li>
+  <li>Reviews you wrote on other people's places — and their rating is taken back out of that place's average</li>
+  <li>Every verification you made — and it is taken back out of that place's trust score — together with the coordinates recorded with it</li>
+  <li>Reports you filed against Google-sourced listings</li>
+  <li>Congregation calls you opened; your identifier is also removed from ones you joined</li>
+</ul>
+
+<h2>What is not deleted</h2>
+<ul>
+  <li><strong>Crash reports.</strong> The technical stack traces sent to Firebase Crashlytics are not linked to your account and expire on their own after 90 days.</li>
+  <li><strong>What other people wrote on a place you added.</strong> It goes when the place goes — but it was their data, not yours.</li>
+</ul>
+<p class="meta">Full removal from backups can take up to 30 days.</p>
+
+<h2>Instead of deleting</h2>
+<p>If you only want to remove a place you added, you do not need to delete your account: you can delete that place on its own from its detail screen.</p>
+
+<footer>© 2026 EESY Dev · Sajda · <a href="privacy.html">Gizlilik Politikası / Privacy Policy</a></footer>
+
+</main>
+</body>
+</html>
