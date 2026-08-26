@@ -71,14 +71,14 @@
 
 <header>
   <h1>Sajda — Gizlilik Politikası</h1>
-  <p class="meta">Son güncelleme: 23 Ağustos 2026 · Geliştirici: EESY Dev · İletişim: <a href="mailto:eesydev@gmail.com">eesydev@gmail.com</a></p>
+  <p class="meta">Son güncelleme: 25 Ağustos 2026 · Geliştirici: EESY Dev · İletişim: <a href="mailto:eesydev@gmail.com">eesydev@gmail.com</a></p>
   <a class="switch" href="#english">English version ↓</a>
 </header>
 
 <div class="lede">
   <strong>Kısaca:</strong>
   <ul>
-    <li>Sajda bir topluluk haritasıdır. <strong>Reklam yok, analitik takip yok, veri satışı yok.</strong></li>
+    <li>Sajda bir topluluk haritasıdır. <strong>Reklam yok, reklam kimliği yok, veri satışı yok.</strong> Uygulamayı geliştirmek için hangi ekranın kullanıldığını sayan <strong>anonim kullanım istatistiği</strong> toplanır (madde 1-e).</li>
     <li>Uygulama kameraya, galeriye, rehbere veya mikrofona <strong>hiç erişmez</strong>; fotoğraf yükleme özelliği yoktur.</li>
     <li>Uygulama <strong>bildirim göndermez</strong> ve arka planda konum toplamaz.</li>
     <li>Hesabını ve verilerini <strong>uygulama içinden tek başına silebilirsin</strong>.</li>
@@ -109,7 +109,11 @@
 <h3>d) Çökme kayıtları</h3>
 <p>Uygulama beklenmedik şekilde kapanırsa Firebase Crashlytics cihaz modeli, işletim sistemi sürümü ve hatanın teknik dökümünü gönderir. Bu kayıt yazdığın hiçbir içeriği taşımaz.</p>
 
-<h3>e) Toplamadıklarımız</h3>
+<h3>e) Kullanım istatistiği</h3>
+<p>Hangi özelliklerin işe yaradığını anlamak için Google Analytics for Firebase ile <strong>olay sayıları</strong> toplanır: bir arama yapıldığı, bir nokta eklendiği, bir yorum ya da doğrulama bırakıldığı, bir cemaat çağrısı açıldığı, bir kaydın şikâyet edildiği. Her olayın yanında yalnızca küçük bir teknik ayrıntı gider — eklenen noktanın kategorisi, yorumun puanı, cemaatin hangi vakit için açıldığı gibi.</p>
+<p>Bu kayıtlar <strong>konumunu, adını, e-postanı ya da yazdığın hiçbir metni taşımaz</strong>. Aramanın nerede yapıldığı değil, yalnızca yapıldığı sayılır. Analytics cihazına Google tarafından atanan bir uygulama örneği kimliği kullanır; bu kimlik reklam kimliği değildir ve reklam için kullanılmaz.</p>
+
+<h3>f) Toplamadıklarımız</h3>
 <p>Reklam kimliği, rehber, fotoğraf/galeri, mikrofon, takvim, SMS, arama geçmişi, ödeme bilgisi. Bunların hiçbirine erişim izni istemiyoruz.</p>
 
 <h2>2. Neyin herkese açık olduğu</h2>
@@ -125,7 +129,7 @@
 
 <h2>4. Üçüncü taraflar</h2>
 <ul>
-  <li><strong>Google Firebase</strong> (Authentication, Cloud Firestore, Crashlytics) — barındırma ve çökme raporlama.</li>
+  <li><strong>Google Firebase</strong> (Authentication, Cloud Firestore, Crashlytics, Analytics) — barındırma, çökme raporlama ve anonim kullanım istatistiği.</li>
   <li><strong>Google Maps SDK</strong> — haritanın çizilmesi.</li>
   <li><strong>Google Places API</strong> — yakındaki camileri bulmak için koordinatların ve arama metnin Google'a gönderilir.</li>
 </ul>
@@ -137,6 +141,7 @@
   <li>Hesabın ve katkıların, sen silene kadar.</li>
   <li>Cemaat çağrıları en fazla 20 dakika sonra otomatik olarak silinir.</li>
   <li>Çökme kayıtları Firebase Crashlytics'in kendi saklama süresine tabidir (90 gün).</li>
+  <li>Kullanım istatistiği Google Analytics'in kendi saklama süresine tabidir (en fazla 14 ay).</li>
 </ul>
 
 <h2>6. Hakların ve hesabını silme</h2>
@@ -154,12 +159,12 @@
 <p>Sorular ve talepler için: <a href="mailto:eesydev@gmail.com">eesydev@gmail.com</a></p>
 
 <h1 id="english" style="margin-top:56px;">Sajda — Privacy Policy</h1>
-<p class="meta">Last updated: 23 August 2026 · Developer: EESY Dev · Contact: <a href="mailto:eesydev@gmail.com">eesydev@gmail.com</a></p>
+<p class="meta">Last updated: 25 August 2026 · Developer: EESY Dev · Contact: <a href="mailto:eesydev@gmail.com">eesydev@gmail.com</a></p>
 
 <div class="lede">
   <strong>In short:</strong>
   <ul>
-    <li>Sajda is a community map. <strong>No ads, no analytics tracking, no data sold.</strong></li>
+    <li>Sajda is a community map. <strong>No ads, no advertising identifiers, no data sold.</strong> We do collect <strong>anonymous usage counts</strong> to see which features are worth keeping (section 1-e).</li>
     <li>The app <strong>never</strong> touches the camera, photo library, contacts or microphone; there is no photo upload.</li>
     <li>The app <strong>sends no notifications</strong> and collects no background location.</li>
     <li>You can <strong>delete your account and data yourself, from inside the app</strong>.</li>
@@ -189,7 +194,11 @@
 <h3>d) Crash reports</h3>
 <p>If the app closes unexpectedly, Firebase Crashlytics sends the device model, OS version and a technical stack trace. It carries none of your content.</p>
 
-<h3>e) What we never collect</h3>
+<h3>e) Usage statistics</h3>
+<p>To understand which features actually help, Google Analytics for Firebase collects <strong>event counts</strong>: that a search happened, that a place was added, that a review or verification was left, that a congregation call was opened, that a listing was reported. Each event carries only a small technical detail alongside it — the category of the added place, the rating of the review, which prayer a congregation was called for.</p>
+<p>These records carry <strong>no location, no name, no email and none of the text you write</strong>. We count that a search happened, never where it happened. Analytics uses an app-instance identifier assigned by Google; it is not an advertising identifier and is not used for advertising.</p>
+
+<h3>f) What we never collect</h3>
 <p>Advertising identifiers, contacts, photos, microphone, calendar, SMS, call history, payment details. We request no permission for any of them.</p>
 
 <h2>2. What is publicly visible</h2>
@@ -204,7 +213,7 @@
 
 <h2>4. Third parties</h2>
 <ul>
-  <li><strong>Google Firebase</strong> (Authentication, Cloud Firestore, Crashlytics) — hosting and crash reporting.</li>
+  <li><strong>Google Firebase</strong> (Authentication, Cloud Firestore, Crashlytics, Analytics) — hosting, crash reporting and anonymous usage statistics.</li>
   <li><strong>Google Maps SDK</strong> — drawing the map.</li>
   <li><strong>Google Places API</strong> — your coordinates and search text are sent to Google to find nearby mosques.</li>
 </ul>
@@ -216,6 +225,7 @@
   <li>Your account and contributions: until you delete them.</li>
   <li>Congregation calls: automatically deleted after at most 20 minutes.</li>
   <li>Crash reports: subject to Firebase Crashlytics' own retention (90 days).</li>
+  <li>Usage statistics: subject to Google Analytics' own retention (at most 14 months).</li>
 </ul>
 
 <h2>6. Your rights and deleting your account</h2>
