@@ -219,8 +219,8 @@ body {
     background: #f8fafc;
 }
 
-/* --- Projeler Bölümü --- */
-.projects-section {
+/* --- Uygulamalar Bölümü --- */
+.apps-section {
     padding: 8rem 5%;
     max-width: 1200px;
     margin: 0 auto;
@@ -229,7 +229,7 @@ body {
 .section-title {
     font-size: 3rem;
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
@@ -240,59 +240,109 @@ body {
     transform: translateY(0);
 }
 
-.project-card {
-    display: flex;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 32px;
-    padding: 4rem;
-    gap: 4rem;
-    align-items: center;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 20px 40px rgba(2, 43, 105, 0.05);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease;
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    margin-bottom: 4rem;
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(20px);
+    transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
 }
 
-.project-card.visible {
+.section-subtitle.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.project-card:hover {
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.app-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 28px;
+    padding: 2.5rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px rgba(2, 43, 105, 0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.7s ease;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.app-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.app-card:nth-child(2) { transition-delay: 0.08s; }
+.app-card:nth-child(3) { transition-delay: 0.16s; }
+.app-card:nth-child(4) { transition-delay: 0.24s; }
+
+.app-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(2, 43, 105, 0.1);
+    box-shadow: 0 30px 60px rgba(2, 43, 105, 0.12);
 }
 
-.project-info {
-    flex: 1;
+.app-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.project-badge {
+.app-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(2, 43, 105, 0.15);
+    flex-shrink: 0;
+}
+
+.badge {
     display: inline-block;
-    padding: 0.4rem 1.2rem;
-    background: rgba(0, 181, 205, 0.1);
-    color: var(--brand-cyan);
+    padding: 0.35rem 0.9rem;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
 }
 
-.project-info h3 {
-    font-size: 2.5rem;
-    margin-bottom: 1.2rem;
+.badge-live {
+    background: rgba(22, 163, 74, 0.12);
+    color: #15803d;
+}
+
+.badge-soon {
+    background: rgba(217, 119, 6, 0.12);
+    color: #b45309;
+}
+
+.app-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.9rem;
     color: var(--brand-dark-blue);
     line-height: 1.2;
 }
 
-.project-info p {
+.app-card p {
     color: var(--text-secondary);
-    font-size: 1.15rem;
-    margin-bottom: 2.5rem;
+    font-size: 1.02rem;
+    margin-bottom: 2rem;
+}
+
+.app-card-foot {
+    margin-top: auto;
 }
 
 .play-btn {
@@ -300,7 +350,7 @@ body {
 }
 
 .play-btn img {
-    height: 65px;
+    height: 52px;
     transition: transform 0.3s ease;
 }
 
@@ -308,41 +358,15 @@ body {
     transform: scale(1.05);
 }
 
-.project-visual {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.mockup-placeholder {
-    width: 280px;
-    height: 560px;
-    background: white;
-    border: 8px solid var(--text-primary);
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-}
-
-.mockup-screen {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-    border-radius: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-}
-
-.mockup-text {
+.soon-pill {
+    display: inline-block;
+    padding: 0.75rem 1.4rem;
+    border-radius: 50px;
+    background: rgba(2, 43, 105, 0.05);
+    border: 1px dashed var(--border-color);
     color: var(--text-secondary);
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 0.95rem;
 }
 
 /* --- Alt Bilgi --- */
@@ -355,55 +379,37 @@ footer {
 }
 
 /* --- Mobil Uyumluluk --- */
-@media (max-width: 992px) {
-    .project-card {
-        flex-direction: column;
-        padding: 3rem;
-        text-align: center;
-    }
-    
-    .project-badge {
-        margin: 0 auto 1.5rem;
-    }
-}
-
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
         gap: 1.5rem;
         padding: 1.5rem;
     }
-    
+
     .nav-links {
         gap: 1.5rem;
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .hero-title {
         font-size: 3.5rem;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         gap: 1rem;
     }
 
-    /* Resmin taşmasını kesin olarak engelleyen kod */
-.project-visual img {
-    width: 280px; /* İdeal telefon genişliği, isterseniz değiştirebilirsiniz */
-    max-width: 100%; /* Resmin dışarı taşmasını engeller */
-    height: auto; /* Yüksekliğini genişliğine göre orantılar, uzatıp basıklaştırmaz */
-    max-height: 600px; /* Çok uzun bir ekran görüntüsüyse sayfayı bozmasını engeller */
-    object-fit: contain; /* Resmi ayrılan alana düzgünce sığdırır */
-    
-    border-radius: 35px; /* Köşeleri yuvarlatır */
-    box-shadow: 0 25px 50px rgba(2, 43, 105, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
+    .section-title {
+        font-size: 2.2rem;
+    }
 
-.project-visual img:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 35px 60px rgba(0, 181, 205, 0.3);
-}
+    .apps-section {
+        padding: 5rem 5%;
+    }
+
+    .app-card {
+        padding: 2rem;
+    }
 }
