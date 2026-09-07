@@ -8,173 +8,176 @@
 <meta name="description" content="GSB Yurt ve Kredi Ödemeleri ekranı için bağımsız, mobil öncelikli arayüz tasarım çalışması. Resmî bir site değildir.">
 <style>
 :root{
-  --green:#0C5D4A; --green-dk:#08422F; --green-lt:#E8F1ED;
-  --blue:#14567F;  --blue-dk:#0E3F5E;  --blue-lt:#E7EFF5;
-  --red:#A8231C;   --red-lt:#FBEDEC;
-  --ink:#1B2320; --ink-2:#4C5A55; --ink-3:#78857F;
-  --rule:#D9D5CB; --rule-soft:#E8E4DA;
-  --paper:#FAF8F3; --surface:#FFFFFF;
+  --red:#C41230; --red-dk:#9E0E26; --red-lt:#FDEEF1; --red-line:#F2C9D1;
+  --green:#1F8A63; --green-lt:#EAF6F1;
+  --blue:#1C6FA8;  --blue-lt:#EDF4FA;
+  --amber:#8A5A00; --amber-bg:#FFF7E6; --amber-line:#EBD199;
+  --ink:#1A1D21; --ink-2:#565F6B; --ink-3:#8B939E;
+  --rule:#E4E2DE; --rule-soft:#EFEEEB;
+  --bg:#FFFFFF; --tint:#FBFAF8;
   --serif:Georgia,"Times New Roman",'Nimbus Roman',serif;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --green:#4FBF9C; --green-dk:#6FD4B4; --green-lt:#0F2B24;
-    --blue:#69B4E4;  --blue-dk:#8CC8EE;  --blue-lt:#10222E;
-    --red:#F0736A;   --red-lt:#2B1615;
-    --ink:#E8E6DF; --ink-2:#AFB8B3; --ink-3:#828C87;
-    --rule:#333B37; --rule-soft:#2A312D;
-    --paper:#141816; --surface:#1B211E;
+    --red:#FF7A8C; --red-dk:#FF9AA8; --red-lt:#2C1419; --red-line:#4A2129;
+    --green:#54C79B; --green-lt:#12281F;
+    --blue:#7BBDE8;  --blue-lt:#11212C;
+    --amber:#F0C674; --amber-bg:#2B2210; --amber-line:#4A3A18;
+    --ink:#E9E8E4; --ink-2:#AEB4BC; --ink-3:#7F868F;
+    --rule:#31343A; --rule-soft:#26292E;
+    --bg:#15171A; --tint:#1B1E22;
   }
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
   font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
-/* ---------- Uyarı şeridi: kırmızı, amaçlı ---------- */
-.notice{background:var(--red);color:#fff;font-size:13px;line-height:1.45;
-  padding:11px 18px;text-align:center}
-@media (prefers-color-scheme:dark){ .notice{background:#7A1912;color:#FBEDEC} }
-.notice b{font-weight:700}
-.notice a{color:#fff;text-underline-offset:3px}
+/* ---------- Uyarı şeridi ---------- */
+.notice{background:var(--amber-bg);color:var(--ink);border-bottom:1px solid var(--amber-line);
+  font-size:13px;line-height:1.5;padding:12px 18px;margin:0;text-align:center}
+.notice b{color:var(--amber)}
+.notice a{color:var(--blue);text-underline-offset:3px}
 
-/* ---------- Başlık bandı: yeşil ---------- */
-.masthead{background:var(--green);color:#fff;border-bottom:4px solid var(--blue)}
-@media (prefers-color-scheme:dark){
-  .masthead{background:#0F2B24;color:var(--ink);border-bottom-color:var(--blue)}
-}
-.masthead-in{max-width:940px;margin:0 auto;padding:20px 18px 18px;
-  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.wordmark{font-family:var(--serif);font-size:23px;line-height:1.15;letter-spacing:-.015em;margin:0}
-.wordmark span{display:block;font-family:var(--sans);font-size:11px;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;opacity:.72;margin-bottom:5px}
-.badge{margin-left:auto;font-family:var(--sans);font-size:10.5px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;padding:5px 0;border-top:2px solid currentColor;
-  border-bottom:2px solid currentColor;opacity:.85;align-self:center}
-.badge::before,.badge::after{content:"·";margin:0 7px;opacity:.6}
+/* ---------- Başlık: beyaz zemin, kırmızı vurgu ---------- */
+.topline{height:4px;background:var(--red)}
+.masthead{background:var(--bg);border-bottom:1px solid var(--rule)}
+.masthead-in{max-width:940px;margin:0 auto;padding:22px 18px 20px;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.wordmark{margin:0;font-family:var(--serif);font-size:24px;font-weight:400;
+  line-height:1.15;letter-spacing:-.015em;color:var(--ink)}
+.wordmark span{display:block;font-family:var(--sans);font-size:10.5px;font-weight:700;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.badge{margin-left:auto;font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--red);border:1px solid var(--red-line);
+  background:var(--red-lt);border-radius:3px;padding:5px 10px}
 
-/* ---------- Sayfa gövdesi ---------- */
-.wrap{max-width:600px;margin:0 auto;padding:28px 18px 56px}
+/* ---------- Gövde ---------- */
+.wrap{max-width:600px;margin:0 auto;padding:30px 18px 56px}
 
-/* ---------- Adımlar: numaralı, çizgisel ---------- */
-.steps{display:flex;list-style:none;margin:0 0 26px;padding:0;
-  border-bottom:1px solid var(--rule)}
-.steps li{flex:1;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--ink-3);padding:0 0 11px;border-bottom:2px solid transparent;margin-bottom:-1px}
-.steps b{display:block;font-family:var(--serif);font-size:20px;font-weight:400;
-  letter-spacing:0;text-transform:none;line-height:1.1;margin-bottom:3px}
-.steps li[aria-current]{color:var(--green);border-bottom-color:var(--green)}
-.steps li.done{color:var(--blue);border-bottom-color:var(--blue)}
+/* ---------- Adımlar ---------- */
+.steps{display:flex;list-style:none;margin:0 0 28px;padding:0;border-bottom:1px solid var(--rule)}
+.steps li{flex:1;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);padding:0 0 12px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.steps b{display:block;font-family:var(--serif);font-size:21px;font-weight:400;
+  letter-spacing:0;text-transform:none;line-height:1.1;margin-bottom:2px}
+.steps li[aria-current]{color:var(--red);border-bottom-color:var(--red)}
+.steps li.done{color:var(--green);border-bottom-color:var(--green)}
 
 /* ---------- Paneller ---------- */
-.panel{background:var(--surface);border:1px solid var(--rule);border-radius:5px;
-  padding:24px 22px;margin-bottom:20px}
-@media (min-width:620px){ .panel{padding:30px 30px} }
+.panel{background:var(--bg);border:1px solid var(--rule);border-radius:6px;
+  padding:26px 22px;margin-bottom:20px}
+@media (min-width:620px){ .panel{padding:32px} }
 
-h2{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.2;
-  letter-spacing:-.015em;margin:0 0 6px}
-.lede{margin:0 0 24px;color:var(--ink-2);font-size:14.5px;max-width:44ch}
+h2{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.2;
+  letter-spacing:-.015em;margin:0 0 7px}
+.lede{margin:0 0 26px;color:var(--ink-2);font-size:14.5px;max-width:44ch}
 
 /* ---------- Form ---------- */
-.field{margin-bottom:22px}
-.field:last-of-type{margin-bottom:26px}
-label{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-2);margin-bottom:8px}
-.hint{font-size:12.5px;color:var(--ink-3);margin:7px 0 0;letter-spacing:0;
+.field{margin-bottom:24px}
+.field:last-of-type{margin-bottom:28px}
+label{display:block;font-size:10.5px;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-2);margin-bottom:9px}
+.hint{font-size:12.5px;color:var(--ink-3);margin:8px 0 0;letter-spacing:0;
   text-transform:none;font-weight:400}
 input{width:100%;font:inherit;font-size:16px;padding:13px 14px;min-height:50px;
-  border:1px solid var(--rule);border-radius:4px;background:var(--surface);color:var(--ink)}
+  border:1px solid var(--rule);border-radius:5px;background:var(--bg);color:var(--ink)}
 input::placeholder{color:var(--ink-3)}
-input:focus{border-color:var(--blue)}
-input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-input:disabled{background:var(--paper);color:var(--ink-3);cursor:not-allowed}
+input:hover{border-color:var(--ink-3)}
+input:focus{border-color:var(--red)}
+input:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible{
+  outline:2px solid var(--red);outline-offset:2px}
+input:disabled{background:var(--tint);color:var(--ink-3);cursor:not-allowed}
+input:disabled:hover{border-color:var(--rule)}
 input[inputmode="numeric"]{font-variant-numeric:tabular-nums;letter-spacing:.05em}
 
 /* ---------- İşlem seçimi ---------- */
-.opts{display:grid;gap:0;border:1px solid var(--rule);border-radius:4px;overflow:hidden}
-.opt{display:flex;gap:12px;align-items:flex-start;padding:15px 16px;cursor:pointer;
-  background:var(--surface);min-height:66px;border-bottom:1px solid var(--rule-soft)}
+.opts{border:1px solid var(--rule);border-radius:5px;overflow:hidden}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:16px;cursor:pointer;
+  background:var(--bg);min-height:66px;border-bottom:1px solid var(--rule-soft)}
 .opt:last-child{border-bottom:0}
-.opt input{width:auto;min-height:0;margin:3px 0 0;flex:0 0 auto;accent-color:var(--green)}
-.opt-t{display:block;font-size:15px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink)}
-.opt-d{font-size:12.5px;color:var(--ink-3);text-transform:none;letter-spacing:0;font-weight:400}
-.opt:has(input:checked){background:var(--green-lt);box-shadow:inset 3px 0 0 var(--green)}
+.opt:hover{background:var(--tint)}
+.opt input{width:auto;min-height:0;margin:3px 0 0;flex:0 0 auto;accent-color:var(--red)}
+.opt-t{display:block;font-size:15px;font-weight:600;letter-spacing:0;
+  text-transform:none;color:var(--ink)}
+.opt-d{font-size:12.5px;color:var(--ink-3);letter-spacing:0;text-transform:none;font-weight:400}
+.opt:has(input:checked){background:var(--red-lt);box-shadow:inset 3px 0 0 var(--red)}
 
 /* ---------- Doğrulama kodu ---------- */
 .captcha{display:flex;gap:10px;align-items:stretch}
 .captcha input{flex:1 1 auto;min-width:0}
-.cap-img{flex:0 0 auto;width:118px;border:1px solid var(--rule);border-radius:4px;
-  background:var(--blue-lt);color:var(--blue-dk);display:grid;place-items:center;
+.cap-img{flex:0 0 auto;width:118px;border:1px solid var(--rule);border-radius:5px;
+  background:var(--tint);color:var(--ink-2);display:grid;place-items:center;
   font-family:var(--mono);font-size:20px;font-weight:700;letter-spacing:.2em;
   user-select:none;transform:rotate(-.6deg)}
-.cap-btn{flex:0 0 auto;width:50px;border:1px solid var(--rule);border-radius:4px;
-  background:var(--surface);color:var(--blue);font-size:19px;cursor:pointer}
-.cap-btn:hover{background:var(--blue-lt)}
+.cap-btn{flex:0 0 auto;width:50px;border:1px solid var(--rule);border-radius:5px;
+  background:var(--bg);color:var(--ink-2);font-size:19px;cursor:pointer}
+.cap-btn:hover{background:var(--tint);color:var(--red)}
 
 /* ---------- Butonlar ---------- */
 .btn{display:block;width:100%;font:inherit;font-size:16px;font-weight:600;min-height:52px;
-  padding:14px 18px;border:1px solid transparent;border-radius:4px;cursor:pointer}
-.btn-go{background:var(--green);color:#fff;border-color:var(--green-dk)}
-.btn-go:hover{background:var(--green-dk)}
-.btn-back{background:transparent;color:var(--blue);border-color:var(--rule);margin-top:10px}
-.btn-back:hover{background:var(--blue-lt)}
-@media (prefers-color-scheme:dark){ .btn-go{color:#08221B} }
+  padding:14px 18px;border:1px solid transparent;border-radius:5px;cursor:pointer}
+.btn-go{background:var(--red);color:#fff;border-color:var(--red-dk)}
+.btn-go:hover{background:var(--red-dk)}
+.btn-back{background:var(--bg);color:var(--ink-2);border-color:var(--rule);margin-top:10px}
+.btn-back:hover{background:var(--tint);color:var(--ink)}
+@media (prefers-color-scheme:dark){ .btn-go{color:#2C1419} }
 
-/* ---------- Borç dökümü: tablo gibi, kartvari değil ---------- */
-.ledger{margin:0 0 22px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
-.who{padding:12px 2px;border-bottom:1px solid var(--rule-soft)}
+/* ---------- Borç dökümü ---------- */
+.ledger{margin:0 0 24px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.who{padding:13px 2px;border-bottom:1px solid var(--rule-soft)}
 .who .nm{font-family:var(--serif);font-size:18px}
 .who .tc{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .ledger dl{margin:0}
-.ln{display:flex;justify-content:space-between;gap:16px;padding:11px 2px;
+.ln{display:flex;justify-content:space-between;gap:16px;padding:12px 2px;
   border-bottom:1px solid var(--rule-soft);font-size:14.5px}
 .ln:last-child{border-bottom:0}
 .ln dt{margin:0;color:var(--ink-2)}
 .ln dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
-.ln.sum{border-top:1px solid var(--ink);border-bottom:0;padding-top:14px;padding-bottom:14px}
+.ln.sum{border-top:1px solid var(--ink);border-bottom:0;padding:15px 2px}
 .ln.sum dt{color:var(--ink);font-weight:600}
-.ln.sum dd{font-family:var(--serif);font-size:24px;font-weight:400;color:var(--red)}
+.ln.sum dd{font-family:var(--serif);font-size:25px;font-weight:400;color:var(--red)}
 .pct{color:var(--ink-3);font-size:12.5px}
 
 /* ---------- Kart alanı ---------- */
-.locked{border:1px solid var(--rule);border-left:3px solid var(--red);
-  border-radius:0 4px 4px 0;padding:18px 18px 20px;margin-bottom:20px;background:var(--red-lt)}
-.locked-tag{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--red);display:block;margin-bottom:16px}
+.locked{border:1px solid var(--amber-line);border-left:3px solid var(--amber);
+  border-radius:0 5px 5px 0;padding:18px 18px 20px;margin-bottom:22px;background:var(--amber-bg)}
+.locked-tag{display:block;font-size:10.5px;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--amber);margin-bottom:16px}
 .cc{display:grid;gap:16px;grid-template-columns:1fr 1fr}
 .cc .full{grid-column:1/-1}
-.locked input{background:var(--surface)}
+.locked input:disabled{background:var(--bg)}
 
 .aside{font-size:13.5px;color:var(--ink-2);border-left:3px solid var(--blue);
-  background:var(--blue-lt);padding:12px 15px;margin:0 0 22px;border-radius:0 4px 4px 0}
+  background:var(--blue-lt);padding:12px 15px;margin:0 0 24px;border-radius:0 5px 5px 0}
 
 /* ---------- Makbuz ---------- */
-.stamp{width:60px;height:60px;border:2px solid var(--green);border-radius:50%;
-  color:var(--green);display:grid;place-items:center;font-size:30px;margin:0 auto 16px;
-  transform:rotate(-7deg)}
+.stamp{width:62px;height:62px;border:2px solid var(--green);border-radius:50%;
+  background:var(--green-lt);color:var(--green);display:grid;place-items:center;
+  font-size:31px;margin:0 auto 18px;transform:rotate(-7deg)}
 .mid{text-align:center}
 .mid .lede{margin-left:auto;margin-right:auto}
 
 /* ---------- Gerekçe ---------- */
-.why{max-width:720px;margin:8px auto 0;padding:0 18px 48px}
-.why h3{font-family:var(--serif);font-weight:400;font-size:21px;margin:0 0 4px}
-.why-sub{font-size:13.5px;color:var(--ink-3);margin:0 0 18px}
+.why{max-width:720px;margin:10px auto 0;padding:0 18px 48px}
+.why h3{font-family:var(--serif);font-weight:400;font-size:22px;margin:0 0 4px}
+.why-sub{font-size:13.5px;color:var(--ink-3);margin:0 0 20px}
 details{border-top:1px solid var(--rule);padding:16px 0}
 details:last-of-type{border-bottom:1px solid var(--rule)}
-summary{cursor:pointer;font-weight:600;font-size:15px;color:var(--blue)}
+summary{cursor:pointer;font-weight:600;font-size:15px;color:var(--red)}
 summary::marker{color:var(--ink-3)}
 details p,details li{font-size:14px;color:var(--ink-2);margin:10px 0}
 details ul{padding-left:20px;margin:10px 0}
 details strong{color:var(--ink)}
-code{font-family:var(--mono);font-size:12.5px;background:var(--paper);
+code{font-family:var(--mono);font-size:12.5px;background:var(--tint);
   border:1px solid var(--rule-soft);padding:1px 5px;border-radius:3px;word-break:break-word}
 
 footer{border-top:1px solid var(--rule);max-width:720px;margin:0 auto;
-  padding:22px 18px 44px;font-size:13px;color:var(--ink-3);text-align:center}
+  padding:24px 18px 46px;font-size:13px;color:var(--ink-3);text-align:center}
 footer a{color:var(--blue)}
-footer .sig{font-family:var(--serif);font-size:16px;color:var(--ink);display:block;margin-bottom:4px}
+footer .sig{font-family:var(--serif);font-size:17px;color:var(--ink);display:block;margin-bottom:5px}
 [hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
 </style>
@@ -187,6 +190,7 @@ footer .sig{font-family:var(--serif);font-size:16px;color:var(--ink);display:blo
   Gerçek adres: <a href="https://kyk.ziraatbank.com.tr/" rel="noopener">kyk.ziraatbank.com.tr</a>
 </p>
 
+<div class="topline"></div>
 <header class="masthead">
   <div class="masthead-in">
     <h1 class="wordmark"><span>Gençlik ve Spor Bakanlığı</span>Yurt ve Kredi Ödemeleri</h1>
