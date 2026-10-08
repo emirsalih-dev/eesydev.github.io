@@ -1,186 +1,331 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EESY Dev | Make it EESY</title>
-    <meta name="description" content="EESY Dev - Mobil Uygulama ve Oyun Geliştirme. Zikirmatik: Dijital Tesbih Google Play'de yayında; Sajda üretim incelemesinde, Garajım, Teklif90 ve Fişçi yakında.">
-    <meta name="author" content="EESY Dev">
-    <link rel="icon" type="image/png" href="icons/eesy-mark.png">
-    <link rel="apple-touch-icon" href="icons/eesy-mark.png">
-    <!-- Open Graph / paylaşım -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="EESY Dev | Make it EESY">
-    <meta property="og:description" content="Mobil uygulama ve oyun geliştiriyoruz. Zikirmatik: Dijital Tesbih Google Play'de yayında; Sajda üretim incelemesinde, Garajım, Teklif90 ve Fişçi yakında.">
-    <meta property="og:image" content="https://emirsalih-dev.github.io/eesydev.github.io/icons/eesy-mark.png">
-    <meta property="og:url" content="https://emirsalih-dev.github.io/eesydev.github.io/">
-    <meta name="twitter:card" content="summary">
-    <!-- Modern Fontlar -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EESY Dev | Make it EESY</title>
+<meta name="description" content="EESY Dev telefon için uygulama ve oyun geliştirir. Zikirmatik Google Play'de yayında; Sajda ve Fişçi Play incelemesinde, Teklif90 ve Garajım yakında. Paint Blank geliştiriliyor.">
+<meta name="author" content="EESY Dev">
+<meta name="theme-color" content="#F8FAFC">
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<link rel="apple-touch-icon" href="icons/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EESY Dev | Make it EESY">
+<meta property="og:description" content="EESY Dev telefon için uygulama ve oyun geliştirir. Zikirmatik Google Play'de yayında; Sajda ve Fişçi Play incelemesinde, Teklif90 ve Garajım yakında. Paint Blank geliştiriliyor.">
+<meta property="og:image" content="https://emirsalih-dev.github.io/eesydev.github.io/icons/og-image.png">
+<meta property="og:url" content="https://emirsalih-dev.github.io/eesydev.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Düzen: sola yaslı büyük başlık + sağda kendini çizen logo şeridi; uygulamalar kart değil, ikonları renkli geniş satırlar. */
+  :root {
+    --paper: #F8FAFC;
+    --ink: #0F172A;
+    --navy: #022B69;
+    --cyan: #00B5CD;
+    --muted: #475569;
+    --tint: #E6F6F9;
+    --line: rgba(2, 43, 105, 0.14);
+    --live: #15803D;
+    --soon: #B45309;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+    --gutter: clamp(16px, 4vw, 56px);
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 1.0625rem/1.6 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; border-radius: 6px; }
+
+  .wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: var(--gutter); }
+
+  /* ---------- Üst çubuk ---------- */
+  .bar {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 700 1.35rem/1 var(--display); font-stretch: 85%; letter-spacing: -0.01em; color: var(--navy); }
+  .brand img { height: 30px; width: auto; display: block; }
+  .nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 36px); }
+  .nav a { text-decoration: none; font-weight: 500; color: var(--muted); }
+  .nav a:hover { color: var(--navy); }
+  .nav .mail { color: var(--navy); font-weight: 600; border: 1.5px solid var(--navy); padding: 8px 18px; border-radius: 999px; }
+  .nav .mail:hover { background: var(--navy); color: var(--paper); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding-block: clamp(40px, 8vw, 104px) clamp(48px, 8vw, 96px); }
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: center; gap: clamp(24px, 5vw, 72px); }
+  h1 {
+    margin: 0;
+    font: 800 clamp(4.5rem, 15.5vw, 11.5rem)/0.84 var(--display);
+    font-stretch: 82%;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+  }
+  h1 span { display: block; }
+  h1 .grad {
+    width: fit-content;
+    padding-right: 0.06em;
+    background: linear-gradient(100deg, var(--navy) 15%, var(--cyan) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  h1 .small { font-size: 0.4em; font-weight: 500; font-stretch: 100%; letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.18em; color: var(--muted); }
+  .lede { max-width: 30rem; margin: clamp(24px, 3vw, 36px) 0 0; font-size: 1.25rem; line-height: 1.5; color: var(--muted); }
+  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 32px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--navy); color: var(--paper);
+    padding: 15px 28px; border-radius: 999px;
+    font-weight: 600; text-decoration: none;
+    transition: background .2s;
+  }
+  .btn:hover { background: #0a3d8f; }
+  .btn svg { width: 16px; height: 16px; }
+  .cta .plain { color: var(--navy); font-weight: 600; }
+
+  .mark { width: 100%; max-width: 560px; justify-self: end; }
+  .mark svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .pen { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.6s cubic-bezier(.55, .05, .3, 1) .25s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  /* Çizgi bittiğinde kalmış olabilecek kıyıları yumuşakça doldurur, ani bir parça belirmez. */
+  .net { opacity: 0; animation: net .7s ease-in 2.4s forwards; }
+  @keyframes net { to { opacity: 1; } }
+
+  /* ---------- Bölüm başlığı ---------- */
+  .sec-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 32px; padding-bottom: 20px; }
+  h2 { margin: 0; font: 700 clamp(2.25rem, 5vw, 3.5rem)/1 var(--display); font-stretch: 85%; letter-spacing: -0.025em; color: var(--navy); text-wrap: balance; }
+  .sec-head p { margin: 0; color: var(--muted); max-width: 26rem; }
+
+  /* ---------- Öne çıkan: Paint Blank ---------- */
+  .feature { padding-bottom: clamp(48px, 7vw, 88px); }
+  .panel {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center; gap: clamp(20px, 4vw, 56px);
+    background: var(--navy); color: #EAF1FF;
+    border-radius: 28px; padding: clamp(24px, 4.5vw, 56px);
+    overflow: hidden;
+  }
+  .panel h3 { margin: 0 0 12px; font: 700 clamp(2rem, 4vw, 3rem)/1 var(--display); font-stretch: 85%; letter-spacing: -0.02em; color: #fff; }
+  .panel p { margin: 0 0 24px; max-width: 28rem; color: #C5D4F0; }
+  .panel .state { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: #fff; }
+  .panel .state i { width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 5px rgba(0, 181, 205, .25); }
+  .panel img { display: block; width: 100%; height: auto; border-radius: 18px; }
+
+  /* ---------- Uygulama satırları ---------- */
+  .apps { padding-bottom: clamp(56px, 8vw, 104px); }
+  .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .row {
+    display: grid; grid-template-columns: 84px minmax(0, 1fr) 190px 190px; align-items: center; gap: 12px clamp(16px, 3vw, 40px);
+    padding: clamp(18px, 2.4vw, 28px) clamp(8px, 1.6vw, 20px);
+    border-bottom: 1px solid var(--line);
+    transition: background .25s;
+  }
+  .row:hover { background: var(--tint); }
+  .row img { width: 84px; height: 84px; border-radius: 22px; display: block; box-shadow: 0 6px 18px rgba(2, 43, 105, .16); }
+  .row h3 { margin: 0 0 4px; font: 700 clamp(1.4rem, 2.4vw, 1.9rem)/1.1 var(--display); font-stretch: 90%; letter-spacing: -0.015em; color: var(--navy); }
+  .row p { margin: 0; color: var(--muted); max-width: 40rem; font-size: 1rem; line-height: 1.5; }
+  .status { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: .95rem; }
+  .status i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+  .st-live i { background: var(--live); } .st-live { color: var(--live); }
+  .st-review i { background: transparent; border: 2px solid var(--navy); } .st-review { color: var(--navy); }
+  .st-soon i { background: var(--soon); opacity: .55; } .st-soon { color: var(--soon); }
+  .act { justify-self: end; }
+  .play { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--navy); color: var(--navy); padding: 10px 18px; border-radius: 999px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: background .2s, color .2s; }
+  .play:hover { background: var(--navy); color: var(--paper); }
+
+  /* ---------- İletişim + alt bilgi ---------- */
+  footer { background: var(--tint); border-top: 1px solid var(--line); padding-block: clamp(48px, 7vw, 88px) 32px; }
+  .contact h2 { margin-bottom: 20px; }
+  .mailaddr { display: inline-block; font: 700 clamp(1.5rem, 4.6vw, 3.2rem)/1.1 var(--display); font-stretch: 85%; letter-spacing: -0.02em; color: var(--navy); text-decoration: underline; text-decoration-color: var(--cyan); text-decoration-thickness: 4px; text-underline-offset: 8px; overflow-wrap: anywhere; }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; margin-top: clamp(40px, 6vw, 72px); padding-top: 28px; border-top: 1px solid var(--line); }
+  .cols h4 { margin: 0 0 10px; font: 600 1rem var(--body); color: var(--navy); }
+  .cols a { display: block; text-decoration: none; color: var(--muted); padding-block: 3px; }
+  .cols a:hover { color: var(--navy); text-decoration: underline; }
+  .copy { margin: 36px 0 0; color: var(--muted); font-size: .9rem; }
+
+  /* ---------- Dar ekran ---------- */
+  @media (max-width: 900px) {
+    .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+    .mark { justify-self: start; max-width: 380px; order: -1; }
+    .panel { grid-template-columns: minmax(0, 1fr); }
+    .row { grid-template-columns: 64px minmax(0, 1fr); }
+    .row img { width: 64px; height: 64px; border-radius: 17px; }
+    .row .status, .row .act { grid-column: 2; justify-self: start; }
+    .nav a:not(.mail) { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .pen { animation: none; stroke-dashoffset: 0; }
+    .net { animation: none; opacity: 1; }
+  }
+</style>
 </head>
 <body>
-    <!-- Arka plan efektleri (Hareketli Gradient Renkler) -->
-    <div class="background-effects">
-        <div class="glow-circle blue"></div>
-        <div class="glow-circle cyan"></div>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="EESY Dev ana sayfa">
+      <img src="icons/eesy-logo.png" alt="">
+      <span>EESY Dev</span>
+    </a>
+    <nav class="nav" aria-label="Ana menü">
+      <a href="#uygulamalar">Uygulamalar</a>
+      <a href="#iletisim">İletişim</a>
+      <a class="mail" href="#iletisim">Bize yazın</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1><span class="small">Make it</span><span class="grad">EESY.</span></h1>
+        <p class="lede">Telefon için uygulama ve oyun geliştiriyoruz. Her uygulama tek bir işi sade ve hızlı yapmaya çalışır.</p>
+        <div class="cta">
+          <a class="btn" href="#uygulamalar">Uygulamalara bak
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v11M3 8.5 8 13.5 13 8.5"/></svg>
+          </a>
+          <a class="plain" href="#iletisim">eesydev@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 620 430">
+          <defs>
+            <mask id="reveal" maskUnits="userSpaceOnUse" x="-20" y="-20" width="660" height="470">
+              <path class="pen" pathLength="1" fill="none" stroke="#fff" stroke-width="170" stroke-linecap="round" stroke-linejoin="round"
+                d="M215 75 C 260 30, 420 20, 500 60 S 600 180, 550 270 S 400 390, 250 385 S 40 380, 40 300 S 120 215, 200 190 L 330 192 L 450 185"/>
+              <rect class="net" x="-20" y="-20" width="660" height="470" fill="#fff"/>
+            </mask>
+          </defs>
+          <image id="logoImg" href="icons/eesy-logo.png" width="620" height="430" mask="url(#reveal)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="wrap">
+      <div class="panel">
+        <div>
+          <h3>Paint Blank</h3>
+          <p>Beyaz karakteri arka plana uyacak şekilde boya. Rakibinden daha iyi saklanan kazanır.</p>
+          <span class="state"><i></i>Geliştiriliyor, Android</span>
+        </div>
+        <img src="icons/paintblank.jpg" alt="Paint Blank logosu">
+      </div>
+    </div>
+  </section>
+
+  <section class="apps" id="uygulamalar">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Uygulamalar</h2>
+        <p>Google Play'de yayında olanlar ve yolda olanlar.</p>
+      </div>
+
+      <ul class="rows">
+        <li class="row">
+          <img src="icons/app-zikirmatik.png" alt="Zikirmatik simgesi" width="84" height="84">
+          <div>
+            <h3>Zikirmatik: Dijital Tesbih</h3>
+            <p>Gerçek tesbih hissi veren boncuk şeridi, hızlı zikir sayacı, namaz vakitleri ve kaza namazı takibi.</p>
+          </div>
+          <span class="status st-live"><i></i>Yayında</span>
+          <div class="act"><a class="play" href="https://play.google.com/store/apps/details?id=com.eesydev.zikirmatik3dtesbih&amp;hl=tr" target="_blank" rel="noopener">Google Play'de aç</a></div>
+        </li>
+
+        <li class="row">
+          <img src="icons/app-sajda.png" alt="Sajda simgesi" width="84" height="84">
+          <div>
+            <h3>Sajda</h3>
+            <p>Mescitleri ve açık ibadet noktalarını keşfet, doğrula ve paylaş. Topluluk destekli ibadet haritası.</p>
+          </div>
+          <span class="status st-review"><i></i>Play incelemesinde</span>
+        </li>
+
+        <li class="row">
+          <img src="icons/app-fisci.png" alt="Fişçi simgesi" width="84" height="84">
+          <div>
+            <h3>Fişçi</h3>
+            <p>Fiş fotoğrafından tutarı okuyan, çevrimdışı çalışan sade harcama takibi. Aylık özet ve kategori grafikleri.</p>
+          </div>
+          <span class="status st-review"><i></i>Play incelemesinde</span>
+        </li>
+
+        <li class="row">
+          <img src="icons/app-teklif90.png" alt="Teklif90 simgesi" width="84" height="84">
+          <div>
+            <h3>Teklif90</h3>
+            <p>Esnaf için sesle teklif hazırlama. Ustan işi anlatır, uygulama teklifi yazar ve WhatsApp'tan müşteriye yollar.</p>
+          </div>
+          <span class="status st-soon"><i></i>Yakında</span>
+        </li>
+
+        <li class="row">
+          <img src="icons/app-garajim.png" alt="Garajım simgesi" width="84" height="84">
+          <div>
+            <h3>Garajım</h3>
+            <p>Bakım, muayene ve sigorta tarihlerini kilometre ve takvime göre hatırlatır. Yakıt kayıtlarından tüketimi hesaplar.</p>
+          </div>
+          <span class="status st-soon"><i></i>Yakında</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer id="iletisim">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Bir fikrin mi var?</h2>
+      <a class="mailaddr" href="mailto:eesydev@gmail.com">eesydev@gmail.com</a>
     </div>
 
-    <!-- Navigasyon -->
-    <nav class="navbar">
-        <div class="logo">
-            <!-- Gerçek logonuzu eklemek için alttaki satırı aktif edebilirsiniz -->
-            <!-- <img src="logo.png" alt="EESY Dev Logo"> -->
-            <span class="logo-eesy">EESY</span> <span class="logo-dev">DEV</span>
-        </div>
-        <div class="nav-links">
-            <a href="#home">Ana Sayfa</a>
-            <a href="#apps">Uygulamalar</a>
-            <a href="#contact" class="nav-btn">İletişim</a>
-        </div>
-    </nav>
+    <div class="cols">
+      <div>
+        <h4>EESY Dev</h4>
+        <a href="https://github.com/emirsalih-dev" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div>
+        <h4>Gizlilik politikaları</h4>
+        <a href="paintblank/privacy.html">Paint Blank</a>
+        <a href="sajda/privacy.html">Sajda</a>
+        <a href="teklif90/privacy.html">Teklif90</a>
+        <a href="fisci/privacy.html">Fişçi</a>
+        <a href="garajim/privacy.html">Garajım</a>
+      </div>
+    </div>
+    <p class="copy">&copy; 2026 EESY Dev</p>
+  </div>
+</footer>
 
-    <!-- Ana İçerik -->
-    <main>
-        <!-- Kahraman (Hero) Bölümü -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">Make it <span class="text-gradient">EESY</span></h1>
-                <p class="hero-subtitle">Modern, kullanıcı dostu ve profesyonel mobil uygulamalar geliştiriyoruz. Geleceğin dijital deneyimlerini bugünden inşa edin.</p>
-                <div class="hero-buttons">
-                    <a href="#apps" class="btn btn-primary">Uygulamalarımızı İncele</a>
-                    <a href="mailto:eesydev@gmail.com" class="btn btn-secondary">İletişime Geç</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Uygulamalar Bölümü -->
-        <section id="apps" class="apps-section">
-            <h2 class="section-title">Tüm <span class="text-gradient">Uygulamalarımız</span></h2>
-            <p class="section-subtitle">Google Play'de yayında olan ve yakında çıkacak uygulamalarımız.</p>
-
-            <div class="apps-grid">
-
-                <!-- Zikirmatik: Dijital Tesbih -->
-                <article class="app-card">
-                    <div class="app-card-head">
-                        <img class="app-icon" src="icons/zikirmatik.png" alt="Zikirmatik: Dijital Tesbih simgesi" width="72" height="72">
-                        <span class="badge badge-live">Google Play'de Yayında</span>
-                    </div>
-                    <h3>Zikirmatik: Dijital Tesbih</h3>
-                    <p>Gerçek tesbih hissi veren boncuk şeridi, hızlı zikir sayacı, namaz vakitleri ve kaza namazı takibi. Günlük hedefinizi belirleyin, serinizi büyütün.</p>
-                    <div class="app-card-foot">
-                        <a href="https://play.google.com/store/apps/details?id=com.eesydev.zikirmatik3dtesbih&hl=tr" target="_blank" class="play-btn">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play'den İndirin">
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Sajda -->
-                <article class="app-card">
-                    <div class="app-card-head">
-                        <img class="app-icon" src="icons/sajda.png" alt="Sajda simgesi" width="72" height="72">
-                        <span class="badge badge-review">Üretime başvuruldu</span>
-                    </div>
-                    <h3>Sajda</h3>
-                    <p>Dünya genelindeki mescitleri, işletmelerin tahsis ettiği ibadet alanlarını ve açık ibadet noktalarını keşfedin, doğrulayın ve paylaşın — topluluk destekli ibadet haritası.</p>
-                    <div class="app-card-foot">
-                        <span class="soon-pill">Google Play incelemesinde</span>
-                    </div>
-                </article>
-
-                <!-- Teklif90 -->
-                <article class="app-card">
-                    <div class="app-card-head">
-                        <img class="app-icon" src="icons/teklif90.png" alt="Teklif90 simgesi" width="72" height="72">
-                        <span class="badge badge-soon">Yakında</span>
-                    </div>
-                    <h3>Teklif90</h3>
-                    <p>Esnaf ve zanaatkarlar için sesle teklif oluşturma aracı. Ustanız işi anlatır, uygulama teklifi hazırlar ve WhatsApp'tan müşteriye gönderir.</p>
-                    <div class="app-card-foot">
-                        <span class="soon-pill">Google Play'de yakında</span>
-                    </div>
-                </article>
-
-                <!-- Fişçi -->
-                <article class="app-card">
-                    <div class="app-card-head">
-                        <img class="app-icon" src="icons/fisci.png" alt="Fişçi simgesi" width="72" height="72">
-                        <span class="badge badge-soon">Yakında</span>
-                    </div>
-                    <h3>Fişçi</h3>
-                    <p>Fiş fotoğrafından tutarı otomatik okuyan, çevrimdışı çalışan sade harcama takip uygulaması. Aylık özet ve kategori bazlı grafiklerle bütçenizi kontrol edin.</p>
-                    <div class="app-card-foot">
-                        <span class="soon-pill">Google Play'de yakında</span>
-                    </div>
-                </article>
-
-                <!-- Garajım -->
-                <article class="app-card">
-                    <div class="app-card-head">
-                        <img class="app-icon" src="icons/garajim.png" alt="Garajım simgesi" width="72" height="72">
-                        <span class="badge badge-soon">Yakında</span>
-                    </div>
-                    <h3>Garajım</h3>
-                    <p>Aracınızın bakım, muayene ve sigorta tarihlerini kilometre ve takvim bazlı hatırlatan takip uygulaması. Yakıt dolumlarınızdan ortalama tüketiminizi ve kilometre başına maliyetinizi otomatik hesaplar.</p>
-                    <div class="app-card-foot">
-                        <span class="soon-pill">Google Play'de yakında</span>
-                    </div>
-                </article>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Alt Bilgi -->
-    <footer id="contact">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <div class="logo">
-                    <span class="logo-eesy">EESY</span> <span class="logo-dev">DEV</span>
-                </div>
-                <p>Make it EESY — modern, kullanıcı dostu mobil uygulamalar ve oyunlar geliştiriyoruz.</p>
-            </div>
-
-            <nav class="footer-col">
-                <h4>İletişim</h4>
-                <a href="mailto:eesydev@gmail.com">eesydev@gmail.com</a>
-                <a href="https://github.com/emirsalih-dev" target="_blank" rel="noopener">GitHub</a>
-            </nav>
-
-            <nav class="footer-col">
-                <h4>Gizlilik Politikaları</h4>
-                <a href="sajda/privacy.html">Sajda</a>
-                <a href="teklif90/privacy.html">Teklif90</a>
-                <a href="fisci/privacy.html">Fişçi</a>
-                <a href="garajim/privacy.html">Garajım</a>
-            </nav>
-        </div>
-
-        <p class="footer-copy">&copy; 2026 EESY Dev. Tüm hakları saklıdır.</p>
-    </footer>
-
-    <!-- Aşağı kaydırma (Scroll) ve Giriş Animasyonları Scripti -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-
-            const elementsToAnimate = document.querySelectorAll('.hero-content, .app-card, .section-title, .section-subtitle');
-            elementsToAnimate.forEach(el => observer.observe(el));
-        });
-    </script>
+<script>
+  // Çizim bitince maskeyi kaldır: köşelerde eksik kalan yer olmasın.
+  (function () {
+    var img = document.getElementById('logoImg');
+    var net = document.querySelector('.net');
+    if (!img || !net) return;
+    var done = function () { img.removeAttribute('mask'); };
+    net.addEventListener('animationend', done);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) done();
+  })();
+</script>
 </body>
 </html>
