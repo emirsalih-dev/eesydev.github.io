@@ -4,24 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EESY Dev | Make it EESY</title>
-<meta name="description" content="EESY Dev telefon için uygulama ve oyun geliştirir. Zikirmatik, Sajda ve Fişçi Google Play'de yayında; Çiğ Köfte Ustası erken erişimde; Teklif90 ve Garajım yakında.">
+<meta name="description" content="EESY Dev telefon için uygulama ve oyun geliştirir. Zikirmatik, Sajda, Fişçi ve Çiğ Köfte Ustası Google Play'de yayında; Teklif90 ve Garajım yakında.">
 <meta name="author" content="EESY Dev">
 <meta name="theme-color" content="#F8FAFC">
+<link rel="canonical" href="https://emirsalih-dev.github.io/eesydev.github.io/">
 <link rel="icon" type="image/png" href="icons/favicon.png">
 <link rel="apple-touch-icon" href="icons/favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="EESY Dev | Make it EESY">
-<meta property="og:description" content="EESY Dev telefon için uygulama ve oyun geliştirir. Zikirmatik, Sajda ve Fişçi Google Play'de yayında; Çiğ Köfte Ustası erken erişimde; Teklif90 ve Garajım yakında.">
+<meta property="og:description" content="EESY Dev telefon için uygulama ve oyun geliştirir. Zikirmatik, Sajda, Fişçi ve Çiğ Köfte Ustası Google Play'de yayında; Teklif90 ve Garajım yakında.">
 <meta property="og:image" content="https://emirsalih-dev.github.io/eesydev.github.io/icons/og-image.png">
 <meta property="og:url" content="https://emirsalih-dev.github.io/eesydev.github.io/">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EESY Dev",
+  "url": "https://emirsalih-dev.github.io/eesydev.github.io/",
+  "email": "mailto:eesydev@gmail.com",
+  "sameAs": [
+    "https://github.com/emirsalih-dev",
+    "https://instagram.com/eesydev"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* Düzen: sola yaslı büyük başlık + sağda kendini çizen logo şeridi; uygulamalar kart değil, ikonları renkli geniş satırlar. */
   :root {
     --paper: #F8FAFC;
+    --surface: #FFFFFF;
     --ink: #0F172A;
     --navy: #022B69;
     --cyan: #00B5CD;
@@ -46,13 +60,14 @@
     -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; }
+  button { font: inherit; color: inherit; cursor: pointer; }
   :focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; border-radius: 6px; }
 
   .wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: var(--gutter); }
 
   /* ---------- Üst çubuk ---------- */
   .bar {
-    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
     background: color-mix(in srgb, var(--paper) 88%, transparent);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
@@ -60,18 +75,24 @@
   .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 700 1.35rem/1 var(--display); font-stretch: 85%; letter-spacing: -0.01em; color: var(--navy); }
   .brand img { height: 30px; width: auto; display: block; }
-  .nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 36px); }
+  .nav { display: flex; align-items: center; gap: clamp(12px, 2.6vw, 30px); }
   .nav a { text-decoration: none; font-weight: 500; color: var(--muted); }
   .nav a:hover { color: var(--navy); }
+  .lang-btn {
+    background: var(--tint); color: var(--navy); border: 1px solid var(--line);
+    padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: .85rem;
+    transition: background .2s;
+  }
+  .lang-btn:hover { background: #d4eef4; }
   .nav .mail { color: var(--navy); font-weight: 600; border: 1.5px solid var(--navy); padding: 8px 18px; border-radius: 999px; }
   .nav .mail:hover { background: var(--navy); color: var(--paper); }
 
   /* ---------- Hero ---------- */
-  .hero { padding-block: clamp(40px, 8vw, 104px) clamp(48px, 8vw, 96px); }
+  .hero { padding-block: clamp(36px, 7vw, 96px) clamp(32px, 6vw, 72px); }
   .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: center; gap: clamp(24px, 5vw, 72px); }
   h1 {
     margin: 0;
-    font: 800 clamp(4.5rem, 15.5vw, 11.5rem)/0.84 var(--display);
+    font: 800 clamp(4.2rem, 15vw, 11rem)/0.84 var(--display);
     font-stretch: 82%;
     letter-spacing: -0.015em;
     color: var(--navy);
@@ -85,79 +106,249 @@
     -webkit-text-fill-color: transparent; color: transparent;
   }
   h1 .small { font-size: 0.4em; font-weight: 500; font-stretch: 100%; letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.18em; color: var(--muted); }
-  .lede { max-width: 30rem; margin: clamp(24px, 3vw, 36px) 0 0; font-size: 1.25rem; line-height: 1.5; color: var(--muted); }
-  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 32px; }
+  .lede { max-width: 32rem; margin: clamp(20px, 3vw, 32px) 0 0; font-size: 1.2rem; line-height: 1.5; color: var(--muted); }
+  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 28px; }
   .btn {
     display: inline-flex; align-items: center; gap: 10px;
     background: var(--navy); color: var(--paper);
-    padding: 15px 28px; border-radius: 999px;
+    padding: 14px 26px; border-radius: 999px; border: 0;
     font-weight: 600; text-decoration: none;
-    transition: background .2s;
+    transition: background .2s, transform .15s;
   }
   .btn:hover { background: #0a3d8f; }
+  .btn:active { transform: scale(.98); }
   .btn svg { width: 16px; height: 16px; }
-  .cta .plain { color: var(--navy); font-weight: 600; }
+  .btn-soft {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--tint); color: var(--navy);
+    border: 1.5px solid var(--line);
+    padding: 13px 22px; border-radius: 999px;
+    font-weight: 600; text-decoration: none;
+    transition: background .2s, border-color .2s;
+  }
+  .btn-soft:hover { background: #d6eff5; border-color: var(--cyan); }
 
-  .mark { width: 100%; max-width: 560px; justify-self: end; }
+  /* Canlı nabız şeridi */
+  .pulse-strip {
+    margin-top: 28px;
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .pulse-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 14px; border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--line);
+    font-size: .88rem; color: var(--muted); font-weight: 500;
+  }
+  .pulse-chip strong { color: var(--navy); }
+  .pulse-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--live); }
+  .pulse-dot.cy { background: var(--cyan); }
+
+  .mark { width: 100%; max-width: 540px; justify-self: end; }
   .mark svg { display: block; width: 100%; height: auto; overflow: visible; }
   .pen { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.6s cubic-bezier(.55, .05, .3, 1) .25s forwards; }
   @keyframes draw { to { stroke-dashoffset: 0; } }
-  /* Çizgi bittiğinde kalmış olabilecek kıyıları yumuşakça doldurur, ani bir parça belirmez. */
   .net { opacity: 0; animation: net .7s ease-in 2.4s forwards; }
   @keyframes net { to { opacity: 1; } }
 
   /* ---------- Bölüm başlığı ---------- */
   .sec-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 32px; padding-bottom: 20px; }
-  h2 { margin: 0; font: 700 clamp(2.25rem, 5vw, 3.5rem)/1 var(--display); font-stretch: 85%; letter-spacing: -0.025em; color: var(--navy); text-wrap: balance; }
-  .sec-head p { margin: 0; color: var(--muted); max-width: 26rem; }
+  h2 { margin: 0; font: 700 clamp(2.1rem, 4.8vw, 3.3rem)/1 var(--display); font-stretch: 85%; letter-spacing: -0.025em; color: var(--navy); text-wrap: balance; }
+  .sec-head p { margin: 0; color: var(--muted); max-width: 28rem; }
 
-  /* ---------- Öne çıkan: Çiğ Köfte Ustası ---------- */
+  /* ---------- Öne çıkan: Çiğ Köfte Ustası + Mini Oyun ---------- */
   .feature { padding-bottom: clamp(48px, 7vw, 88px); }
   .panel {
-    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center; gap: clamp(20px, 4vw, 56px);
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); align-items: center; gap: clamp(20px, 4vw, 52px);
     background: var(--navy); color: #EAF1FF;
-    border-radius: 28px; padding: clamp(24px, 4.5vw, 56px);
+    border-radius: 28px; padding: clamp(24px, 4.5vw, 52px);
     overflow: hidden;
   }
   .panel h3 { margin: 0 0 12px; font: 700 clamp(2rem, 4vw, 3rem)/1 var(--display); font-stretch: 85%; letter-spacing: -0.02em; color: #fff; }
-  .panel p { margin: 0 0 24px; max-width: 28rem; color: #C5D4F0; }
-  .panel .state { text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: #fff; }
+  .panel p { margin: 0 0 22px; max-width: 29rem; color: #C5D4F0; }
+  .panel .state { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: #fff; margin-bottom: 22px; }
   .panel .state i { width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 5px rgba(0, 181, 205, .25); }
-  .panel .get { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--navy); padding: 14px 26px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: background .2s, color .2s; }
+  .panel-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .panel .get { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--navy); padding: 13px 24px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: background .2s, color .2s; border: 0; }
   .panel .get:hover { background: var(--cyan); color: #fff; }
   .panel .get svg { width: 16px; height: 16px; }
-  .panel img { display: block; width: 100%; height: auto; border-radius: 18px; }
+  .panel .play-mini {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0, 181, 205, .18); color: #fff;
+    border: 1.5px solid rgba(0, 181, 205, .6);
+    padding: 12px 22px; border-radius: 999px; font-weight: 600;
+    transition: background .2s;
+  }
+  .panel .play-mini:hover { background: var(--cyan); color: var(--navy); }
+  .panel .social { display: flex; gap: 24px; margin-top: 18px; }
+  .panel .social a { display: inline-flex; align-items: center; gap: 8px; color: inherit; font-size: .95rem; text-decoration: none; }
+  .panel .social .ico { width: 20px; height: 20px; }
+  .panel .social a:hover { color: var(--cyan); }
+
+  .panel-media { position: relative; }
+  .panel-media img { display: block; width: 100%; height: auto; border-radius: 18px; }
+  .mini-game {
+    background: #061A3E;
+    border: 1px solid rgba(0, 181, 205, .35);
+    border-radius: 18px;
+    padding: 20px;
+    min-height: 270px;
+    display: flex; flex-direction: column; justify-content: space-between; gap: 14px;
+  }
+  .mini-game[hidden] { display: none; }
+  .mg-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: .92rem; }
+  .mg-stats { display: flex; gap: 16px; font-weight: 700; color: #fff; }
+  .mg-stats span b { color: var(--cyan); }
+  .mg-close { background: rgba(255,255,255,.1); border: 0; color: #fff; border-radius: 999px; padding: 5px 12px; font-size: .82rem; }
+  .mg-stage {
+    position: relative;
+    flex: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+    background: radial-gradient(circle at center, rgba(0, 181, 205, .15), transparent 70%);
+    border-radius: 14px;
+    padding: 16px;
+    min-height: 176px;
+    overflow: hidden;
+    user-select: none;
+  }
+  .durum-board { position: relative; width: 170px; height: 74px; display: grid; place-items: center; }
+  .durum-item {
+    position: absolute; width: 146px; height: 54px; border-radius: 14px;
+    background: #FDE68A; border: 2px solid #D97706;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+    box-shadow: 0 8px 18px rgba(0,0,0,.28);
+  }
+  .durum-item .kofte { width: 118px; height: 14px; border-radius: 999px; background: #991B1B; }
+  .durum-item .marul { position: absolute; width: 110px; height: 6px; border-radius: 999px; background: #22C55E; top: 14px; }
+  .durum-fly { pointer-events: none; animation: wrapFly .48s cubic-bezier(.22, .85, .36, 1) forwards; }
+  @keyframes wrapFly {
+    0%   { transform: scaleY(1) rotate(0deg); border-radius: 14px; opacity: 1; }
+    42%  { transform: scaleY(.46) scaleX(.94) rotate(-6deg); border-radius: 999px; opacity: 1; }
+    100% { transform: translate(170px, -110px) scaleY(.42) scale(.65) rotate(28deg); border-radius: 999px; opacity: 0; }
+  }
+  .mg-pop {
+    position: absolute; top: 8px; right: 16px;
+    font: 700 .95rem/1 var(--display); color: var(--cyan);
+    pointer-events: none; animation: tipPop .5s ease-out forwards;
+  }
+  @keyframes tipPop { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-28px); } }
+  .mg-tap {
+    padding: 11px 28px; border-radius: 999px;
+    border: 2px solid var(--cyan);
+    background: linear-gradient(145deg, #00B5CD, #0284C7);
+    color: #041836;
+    font: 800 1rem/1.15 var(--display);
+    box-shadow: 0 8px 20px rgba(0,0,0,.3);
+    transition: transform .06s;
+  }
+  .mg-tap:active { transform: scale(.93); }
+  .mg-tap:disabled { opacity: .65; cursor: default; }
+  .mg-bar { height: 6px; background: rgba(255,255,255,.14); border-radius: 999px; overflow: hidden; }
+  .mg-bar > i { display: block; height: 100%; width: 100%; background: var(--cyan); transition: width .1s linear; }
+  .mg-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: .88rem; color: #C5D4F0; }
 
   /* ---------- Uygulama satırları ---------- */
-  .apps { padding-bottom: clamp(56px, 8vw, 104px); }
+  .apps { padding-bottom: clamp(52px, 7vw, 88px); }
   .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
   .row {
-    display: grid; grid-template-columns: 84px minmax(0, 1fr) 190px 190px; align-items: center; gap: 12px clamp(16px, 3vw, 40px);
-    padding: clamp(18px, 2.4vw, 28px) clamp(8px, 1.6vw, 20px);
+    display: grid; grid-template-columns: 84px minmax(0, 1fr) auto auto; align-items: center; gap: 12px clamp(16px, 2.5vw, 32px);
+    padding: clamp(18px, 2.4vw, 26px) clamp(8px, 1.6vw, 20px);
     border-bottom: 1px solid var(--line);
     transition: background .25s;
   }
   .row:hover { background: var(--tint); }
-  .row img { width: 84px; height: 84px; border-radius: 22px; display: block; box-shadow: 0 6px 18px rgba(2, 43, 105, .16); }
-  .row h3 { margin: 0 0 4px; font: 700 clamp(1.4rem, 2.4vw, 1.9rem)/1.1 var(--display); font-stretch: 90%; letter-spacing: -0.015em; color: var(--navy); }
-  .row p { margin: 0; color: var(--muted); max-width: 40rem; font-size: 1rem; line-height: 1.5; }
-  .status { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: .95rem; }
+  .row img.app-ico { width: 84px; height: 84px; border-radius: 22px; display: block; box-shadow: 0 6px 18px rgba(2, 43, 105, .16); }
+  .row h3 { margin: 0 0 4px; font: 700 clamp(1.35rem, 2.3vw, 1.85rem)/1.1 var(--display); font-stretch: 90%; letter-spacing: -0.015em; color: var(--navy); }
+  .row p { margin: 0; color: var(--muted); max-width: 38rem; font-size: .98rem; line-height: 1.5; }
+  .status { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: .92rem; white-space: nowrap; }
   .status i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
   .st-live i { background: var(--live); } .st-live { color: var(--live); }
-  .st-review i { background: transparent; border: 2px solid var(--navy); } .st-review { color: var(--navy); }
-  .st-soon i { background: var(--soon); opacity: .55; } .st-soon { color: var(--soon); }
-  .act { justify-self: end; }
+  .st-soon i { background: var(--soon); opacity: .65; } .st-soon { color: var(--soon); }
+  .act { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px; }
+  .demo-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--surface); color: var(--navy);
+    border: 1.5px solid var(--navy); border-radius: 999px;
+    padding: 9px 16px; font-weight: 600; font-size: .88rem;
+    transition: background .2s, color .2s;
+  }
+  .demo-btn:hover { background: var(--navy); color: #fff; }
   .play { display: inline-block; line-height: 0; border-radius: 8px; }
-  .play img { display: block; height: 50px; width: auto; transition: transform .2s; }
+  .play img { display: block; height: 44px; width: auto; transition: transform .2s; }
   .play:hover img { transform: translateY(-2px); }
 
-  /* ---------- Tester çağrısı ---------- */
+  /* ---------- Canlı Sajda Harita Bölümü ---------- */
+  .sajda-live { padding-bottom: clamp(56px, 8vw, 96px); }
+  .map-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    padding: clamp(20px, 3.5vw, 38px);
+    display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(20px, 4vw, 44px);
+    align-items: center;
+  }
+  .city-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+  .city-pill {
+    background: var(--paper); border: 1.5px solid var(--line);
+    color: var(--navy); font-weight: 600; font-size: .9rem;
+    padding: 8px 15px; border-radius: 999px; transition: all .2s;
+  }
+  .city-pill[aria-pressed="true"], .city-pill:hover {
+    background: var(--navy); color: #fff; border-color: var(--navy);
+  }
+  .map-meta { font-size: .95rem; color: var(--muted); }
+  .map-meta strong { color: var(--navy); }
+  .map-canvas-wrap {
+    position: relative;
+    background: #071A38;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    border: 1px solid rgba(2,43,105,.25);
+  }
+  .map-canvas-wrap canvas { display: block; width: 100%; height: 100%; }
+  .map-tip {
+    position: absolute; left: 12px; right: 12px; bottom: 12px;
+    background: rgba(6, 26, 62, .9); color: #EAF1FF;
+    border: 1px solid rgba(0, 181, 205, .45);
+    border-radius: 12px; padding: 8px 12px; font-size: .86rem;
+    display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  }
+  .map-tip b { color: var(--cyan); }
+
+  /* ---------- EESY Lab / Deneyler ---------- */
+  .lab { padding-bottom: clamp(56px, 8vw, 96px); }
+  .lab-grid {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;
+  }
+  .lab-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 22px;
+    padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+    transition: border-color .2s, transform .2s;
+  }
+  .lab-card:hover { border-color: var(--cyan); transform: translateY(-2px); }
+  .lab-head { display: flex; align-items: center; gap: 14px; }
+  .lab-thumb { width: 56px; height: 56px; border-radius: 14px; object-fit: cover; border: 1px solid var(--line); flex: none; }
+  .lab-badge { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--navy); background: var(--tint); padding: 4px 10px; border-radius: 999px; margin-bottom: 6px; }
+  .lab-card h3 { margin: 0; font: 700 1.35rem/1.2 var(--display); color: var(--navy); }
+  .lab-card p { margin: 0; color: var(--muted); font-size: .96rem; }
+  .lab-link { align-self: flex-start; font-weight: 600; color: var(--navy); text-decoration: none; border-bottom: 2px solid var(--cyan); padding-bottom: 2px; }
+
+  /* ---------- Tester çağrısı (Sürtünmesiz form) ---------- */
   .tester { padding-bottom: clamp(56px, 8vw, 104px); }
-  .tester-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 88px); align-items: start; border-top: 1px solid var(--line); padding-top: clamp(40px, 6vw, 72px); }
-  .tester p { margin: 16px 0 0; color: var(--muted); max-width: 30rem; }
-  .tester .cta { margin-top: 28px; }
-  .tester .addr { margin-top: 14px; font-size: .95rem; color: var(--muted); }
-  .tester .addr b { color: var(--navy); font-weight: 600; user-select: all; }
+  .tester-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 80px); align-items: start; border-top: 1px solid var(--line); padding-top: clamp(40px, 6vw, 72px); }
+  .tester p { margin: 14px 0 0; color: var(--muted); max-width: 30rem; }
+  .tester-form {
+    margin-top: 22px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 20px;
+    display: grid; gap: 12px;
+  }
+  .tester-form label { display: grid; gap: 5px; font-size: .88rem; font-weight: 600; color: var(--navy); }
+  .tester-form input, .tester-form select {
+    width: 100%; padding: 10px 12px; border-radius: 10px;
+    border: 1.5px solid var(--line); background: var(--paper); font: inherit; color: var(--ink);
+  }
+  .tester-form-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .copy-msg { font-size: .88rem; color: var(--live); font-weight: 600; min-height: 1.2em; }
   .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
   .steps li { counter-increment: step; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px; padding-block: 20px; border-bottom: 1px solid var(--line); }
   .steps li:first-child { padding-top: 4px; }
@@ -173,18 +364,66 @@
   .cols h4 { margin: 0 0 10px; font: 600 1rem var(--body); color: var(--navy); }
   .cols a { display: block; text-decoration: none; color: var(--muted); padding-block: 3px; }
   .cols a:hover { color: var(--navy); text-decoration: underline; }
+  .cols a.withico { display: flex; align-items: center; gap: 8px; }
+  .ico { width: 18px; height: 18px; flex: none; }
   .copy { margin: 36px 0 0; color: var(--muted); font-size: .9rem; }
+
+  /* ---------- Demo Dialog / Modal ---------- */
+  dialog.demo-modal {
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 0;
+    width: min(560px, calc(100vw - 24px));
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: 0 24px 60px rgba(2, 43, 105, .28);
+  }
+  dialog.demo-modal::backdrop { background: rgba(2, 20, 48, .55); backdrop-filter: blur(4px); }
+  .dm-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 18px 22px; border-bottom: 1px solid var(--line); background: var(--tint);
+  }
+  .dm-head h3 { margin: 0; font: 700 1.35rem/1.2 var(--display); color: var(--navy); }
+  .dm-close {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+    width: 34px; height: 34px; font-weight: 700; color: var(--navy);
+  }
+  .dm-body { padding: 22px; display: grid; gap: 16px; }
+
+  /* Tesbih Widget */
+  .tasbih-box {
+    background: linear-gradient(160deg, #022B69, #073D8C);
+    color: #fff; border-radius: 18px; padding: 20px; text-align: center;
+  }
+  .tasbih-dhikr { font-size: .9rem; color: #AEEAF2; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+  .tasbih-count { font: 800 3.2rem/1 var(--display); margin: 6px 0 12px; }
+  .tasbih-svg { width: 100%; max-width: 360px; height: 120px; display: block; margin: 0 auto 12px; cursor: pointer; touch-action: manipulation; }
+  .bead { transition: transform .18s cubic-bezier(.22, 1, .36, 1); }
+
+  /* Teklif90 & Fişçi & Garajım Widgets */
+  .preset-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .preset-chip {
+    background: var(--tint); border: 1px solid var(--line); color: var(--navy);
+    padding: 7px 12px; border-radius: 999px; font-size: .85rem; font-weight: 600;
+  }
+  .preset-chip:hover { background: #d2eef5; }
+  .wa-card {
+    background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 14px; padding: 14px 16px;
+    font-size: .94rem; white-space: pre-line; color: #064E3B;
+  }
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .meter { height: 10px; border-radius: 999px; background: #E2E8F0; overflow: hidden; }
+  .meter > i { display: block; height: 100%; background: var(--cyan); transition: width .25s; }
 
   /* ---------- Dar ekran ---------- */
   @media (max-width: 900px) {
-    .hero .wrap { grid-template-columns: minmax(0, 1fr); }
-    .mark { justify-self: start; max-width: 380px; order: -1; }
-    .panel { grid-template-columns: minmax(0, 1fr); }
+    .hero .wrap, .panel, .map-card, .tester-grid, .lab-grid { grid-template-columns: minmax(0, 1fr); }
+    .mark { justify-self: start; max-width: 340px; order: -1; }
     .row { grid-template-columns: 64px minmax(0, 1fr); }
-    .row img { width: 64px; height: 64px; border-radius: 17px; }
+    .row img.app-ico { width: 64px; height: 64px; border-radius: 17px; }
     .row .status, .row .act { grid-column: 2; justify-self: start; }
     .nav a:not(.mail) { display: none; }
-    .tester-grid { grid-template-columns: minmax(0, 1fr); }
+    .calc-grid { grid-template-columns: 1fr; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -195,6 +434,11 @@
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ic-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/></g><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="ic-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+  <symbol id="ic-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+</svg>
 
 <header class="bar">
   <div class="wrap">
@@ -203,10 +447,12 @@
       <span>EESY Dev</span>
     </a>
     <nav class="nav" aria-label="Ana menü">
-      <a href="#uygulamalar">Uygulamalar</a>
-      <a href="#tester">Tester ol</a>
-      <a href="#iletisim">İletişim</a>
-      <a class="mail" href="#iletisim">Bize yazın</a>
+      <a href="#uygulamalar" data-i18n="navApps">Uygulamalar</a>
+      <a href="#sajda-harita" data-i18n="navMap">Sajda Harita</a>
+      <a href="#lab">Lab</a>
+      <a href="#tester" data-i18n="navTester">Tester ol</a>
+      <button type="button" class="lang-btn" id="langBtn" aria-label="Dili değiştir">EN</button>
+      <a class="mail" href="#iletisim" data-i18n="navContact">Bize yazın</a>
     </nav>
   </div>
 </header>
@@ -216,12 +462,18 @@
     <div class="wrap">
       <div>
         <h1><span class="small">Make it</span><span class="grad">EESY.</span></h1>
-        <p class="lede">Telefon için uygulama ve oyun geliştiriyoruz. Her uygulama tek bir işi sade ve hızlı yapmaya çalışır.</p>
+        <p class="lede" data-i18n="heroLede">Telefon için uygulama ve oyun geliştiriyoruz. Her uygulama tek bir işi sade ve hızlı yapmaya çalışır.</p>
         <div class="cta">
-          <a class="btn" href="#uygulamalar">Uygulamalara bak
+          <a class="btn" href="#uygulamalar">
+            <span data-i18n="heroBtn">Uygulamalara bak</span>
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v11M3 8.5 8 13.5 13 8.5"/></svg>
           </a>
-          <a class="plain" href="#iletisim">eesydev@gmail.com</a>
+          <a class="plain" href="#iletisim" style="color:var(--navy);font-weight:600;">eesydev@gmail.com</a>
+        </div>
+        <div class="pulse-strip" aria-label="Stüdyo durumu">
+          <span class="pulse-chip"><i class="pulse-dot"></i><strong id="liveAppCount">4</strong> <span data-i18n="pulseLive">Google Play'de yayında</span></span>
+          <span class="pulse-chip"><i class="pulse-dot cy"></i><strong id="sajdaTotal">23.443</strong> <span data-i18n="pulseOsm">Sajda ibadet noktası</span></span>
+          <span class="pulse-chip"><strong data-i18n="pulseFocus">Odakta:</strong> Teklif90 &amp; Garajım</span>
         </div>
       </div>
 
@@ -240,18 +492,50 @@
     </div>
   </section>
 
-  <section class="feature">
+  <section class="feature" id="oyun">
     <div class="wrap">
       <div class="panel">
         <div>
           <h3>Çiğ Köfte Ustası</h3>
-          <p>Dükkânına ad ver, kepengi aç. Hamuru yoğur, köfteyi sık, dürümü sar; rengârenk müşterilere yetiş, bahşişleri topla ve tezgâhını büyüt.</p>
-          <p class="state"><i></i>Google Play'de erken erişimde</p>
-          <a class="get" href="https://play.google.com/store/apps/details?id=com.eesydev.cigkofte&amp;hl=tr" target="_blank" rel="noopener">Şimdi dene
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5"/></svg>
-          </a>
+          <p data-i18n="ckDesc">Dükkânına ad ver, kepengi aç. Hamuru yoğur, köfteyi sık, dürümü sar; rengârenk müşterilere yetiş, bahşişleri topla ve tezgâhını büyüt.</p>
+          <div class="state"><i></i><span data-i18n="ckState">Google Play'de yayında</span></div>
+          <div class="panel-actions">
+            <a class="get" href="https://play.google.com/store/apps/details?id=com.eesydev.cigkofte&amp;hl=tr" target="_blank" rel="noopener">
+              <span data-i18n="ckPlay">Şimdi dene</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5"/></svg>
+            </a>
+            <button type="button" class="play-mini" id="toggleMiniGame" data-i18n="ckMiniBtn">10 sn Tezgâh Oyna</button>
+          </div>
+          <div class="social">
+            <a href="https://www.instagram.com/cigkofteustasi.game/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#ic-instagram"/></svg>Instagram</a>
+            <a href="https://www.tiktok.com/@cigkofteustasi.game" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#ic-tiktok"/></svg>TikTok</a>
+          </div>
         </div>
-        <img src="icons/cigkofte.jpg" alt="Çiğ Köfte Ustası tanıtım görseli" width="1024" height="500">
+
+        <div class="panel-media">
+          <img id="ckBanner" src="icons/cigkofte.jpg" alt="Çiğ Köfte Ustası tanıtım görseli" width="1024" height="500">
+          <div class="mini-game" id="ckMiniGame" hidden>
+            <div class="mg-top">
+              <div class="mg-stats">
+                <span>⏱ <b id="mgTime">10.0</b>s</span>
+                <span>🌯 <b id="mgWraps">0</b></span>
+                <span>💸 <b id="mgTips">0</b> ₺</span>
+              </div>
+              <button type="button" class="mg-close" id="closeMiniGame">Görsele dön</button>
+            </div>
+            <div class="mg-stage" id="mgStage">
+              <div class="durum-board" id="durumBoard" aria-hidden="true">
+                <div class="durum-item"><span class="marul"></span><span class="kofte"></span></div>
+              </div>
+              <button type="button" class="mg-tap" id="mgTapBtn">SAR! <small>(Tıkla / Space)</small></button>
+            </div>
+            <div class="mg-bar"><i id="mgBarFill"></i></div>
+            <div class="mg-foot">
+              <span id="mgHint">Her SAR'a basınca dürüm sarılıp fırlar!</span>
+              <button type="button" class="mg-close" id="mgRestart">Sıfırla</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -259,90 +543,203 @@
   <section class="apps" id="uygulamalar">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Uygulamalar</h2>
-        <p>Google Play'de yayında olanlar ve yolda olanlar.</p>
+        <h2 data-i18n="appsTitle">Uygulamalar</h2>
+        <p data-i18n="appsSub">Google Play'de yayında olanlar — "Canlı Dene" ile tarayıcıda test edebilirsin.</p>
       </div>
 
       <ul class="rows">
         <li class="row">
-          <img src="icons/app-zikirmatik.png" alt="Zikirmatik simgesi" width="84" height="84">
+          <img class="app-ico" src="icons/app-zikirmatik.png" alt="Zikirmatik simgesi" width="84" height="84" loading="lazy" decoding="async">
           <div>
             <h3>Zikirmatik: Dijital Tesbih</h3>
-            <p>Gerçek tesbih hissi veren boncuk şeridi, hızlı zikir sayacı, namaz vakitleri ve kaza namazı takibi.</p>
+            <p data-i18n="appZikir">Gerçek tesbih hissi veren boncuk şeridi, hızlı zikir sayacı, namaz vakitleri ve kaza namazı takibi.</p>
           </div>
-          <span class="status st-live"><i></i>Yayında</span>
-          <div class="act"><a class="play" href="https://play.google.com/store/apps/details?id=com.eesydev.zikirmatik3dtesbih&amp;hl=tr" target="_blank" rel="noopener"><img src="icons/google-play-badge.svg" alt="Google Play'den indirin" width="169" height="50"></a></div>
+          <span class="status st-live"><i></i><span data-i18n="stLive">Yayında</span></span>
+          <div class="act">
+            <button type="button" class="demo-btn" data-open-demo="zikirmatik" data-i18n="tryLive">Canlı Dene</button>
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.eesydev.zikirmatik3dtesbih&amp;hl=tr" target="_blank" rel="noopener"><img src="icons/google-play-badge.svg" alt="Google Play'den indirin" width="149" height="44" loading="lazy"></a>
+          </div>
         </li>
 
         <li class="row">
-          <img src="icons/app-sajda.png" alt="Sajda simgesi" width="84" height="84">
+          <img class="app-ico" src="icons/app-sajda.png" alt="Sajda simgesi" width="84" height="84" loading="lazy" decoding="async">
           <div>
             <h3>Sajda</h3>
-            <p>Mescitleri ve açık ibadet noktalarını keşfet, doğrula ve paylaş. Topluluk destekli ibadet haritası.</p>
+            <p data-i18n="appSajda">Mescitleri ve açık ibadet noktalarını keşfet, doğrula ve paylaş. Topluluk destekli ibadet haritası.</p>
           </div>
-          <span class="status st-live"><i></i>Yayında</span>
-          <div class="act"><a class="play" href="https://play.google.com/store/apps/details?id=com.eesydev.sajda&amp;hl=tr" target="_blank" rel="noopener"><img src="icons/google-play-badge.svg" alt="Google Play'den indirin" width="169" height="50"></a></div>
+          <span class="status st-live"><i></i><span data-i18n="stLive">Yayında</span></span>
+          <div class="act">
+            <a class="demo-btn" href="#sajda-harita" data-i18n="inspectData">Veriyi İncele</a>
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.eesydev.sajda&amp;hl=tr" target="_blank" rel="noopener"><img src="icons/google-play-badge.svg" alt="Google Play'den indirin" width="149" height="44" loading="lazy"></a>
+          </div>
         </li>
 
         <li class="row">
-          <img src="icons/app-fisci.png" alt="Fişçi simgesi" width="84" height="84">
+          <img class="app-ico" src="icons/app-fisci.png" alt="Fişçi simgesi" width="84" height="84" loading="lazy" decoding="async">
           <div>
             <h3>Fişçi</h3>
-            <p>Fiş fotoğrafından tutarı okuyan, çevrimdışı çalışan sade harcama takibi. Aylık özet ve kategori grafikleri.</p>
+            <p data-i18n="appFisci">Fiş fotoğrafından tutarı okuyan, çevrimdışı çalışan sade harcama takibi. Aylık özet ve kategori grafikleri.</p>
           </div>
-          <span class="status st-live"><i></i>Yayında</span>
-          <div class="act"><a class="play" href="https://play.google.com/store/apps/details?id=com.eesydev.fis_takip&amp;hl=tr" target="_blank" rel="noopener"><img src="icons/google-play-badge.svg" alt="Google Play'den indirin" width="169" height="50"></a></div>
-        </li>
-
-        <li class="row">
-          <img src="icons/app-teklif90.png" alt="Teklif90 simgesi" width="84" height="84">
-          <div>
-            <h3>Teklif90</h3>
-            <p>Esnaf için sesle teklif hazırlama. Ustan işi anlatır, uygulama teklifi yazar ve WhatsApp'tan müşteriye yollar.</p>
+          <span class="status st-live"><i></i><span data-i18n="stLive">Yayında</span></span>
+          <div class="act">
+            <button type="button" class="demo-btn" data-open-demo="fisci" data-i18n="tryLive">Canlı Dene</button>
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.eesydev.fis_takip&amp;hl=tr" target="_blank" rel="noopener"><img src="icons/google-play-badge.svg" alt="Google Play'den indirin" width="149" height="44" loading="lazy"></a>
           </div>
-          <span class="status st-soon"><i></i>Yakında</span>
-        </li>
-
-        <li class="row">
-          <img src="icons/app-garajim.png" alt="Garajım simgesi" width="84" height="84">
-          <div>
-            <h3>Garajım</h3>
-            <p>Bakım, muayene ve sigorta tarihlerini kilometre ve takvime göre hatırlatır. Yakıt kayıtlarından tüketimi hesaplar.</p>
-          </div>
-          <span class="status st-soon"><i></i>Yakında</span>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <section class="sajda-live" id="sajda-harita">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="mapTitle">Sajda Canlı Veri Vitrini</h2>
+        <p data-i18n="mapSub">Doğrudan bu repodaki sıkıştırılmış geohash (.json.gz) verisini tarayıcıda açıp çizer.</p>
+      </div>
+      <div class="map-card">
+        <div>
+          <span class="lab-badge" data-i18n="mapBadge">Sıfır Backend · DecompressionStream</span>
+          <h3 style="margin:0 0 8px; font:700 1.65rem/1.15 var(--display); color:var(--navy);" id="mapRegionTitle">İstanbul (sxk)</h3>
+          <p style="margin:0; color:var(--muted);" data-i18n="mapDesc">Şehir seçtiğinde ilgili <code>sajda/osm/v1/*.json.gz</code> dosyası indirilir, gzip tarayıcıda açılır ve noktalar haritaya yerleşir.</p>
+          <div class="city-pills" role="group" aria-label="Şehir seçimi">
+            <button type="button" class="city-pill" data-cell="sxk" data-label="İstanbul (sxk)" aria-pressed="true">İstanbul</button>
+            <button type="button" class="city-pill" data-cell="sxp" data-label="Ankara (sxp)" aria-pressed="false">Ankara</button>
+            <button type="button" class="city-pill" data-cell="swg" data-label="İzmir (swg)" aria-pressed="false">İzmir</button>
+            <button type="button" class="city-pill" data-cell="szj" data-label="Erzurum (szj)" aria-pressed="false">Erzurum</button>
+          </div>
+          <p class="map-meta" id="mapStats">Yükleniyor…</p>
+        </div>
+        <div class="map-canvas-wrap">
+          <canvas id="sajdaCanvas" width="640" height="400"></canvas>
+          <div class="map-tip">
+            <span id="mapHoverName">Bir noktanın üzerine gel veya tıkla</span>
+            <b id="mapHoverCoord">—</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lab" id="lab">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>EESY Lab</h2>
+        <p data-i18n="labSub">Şu an geliştirilen uygulamalar, arayüz konseptleri ve yan deneyler.</p>
+      </div>
+      <div class="lab-grid">
+        <article class="lab-card">
+          <div>
+            <div class="lab-head">
+              <img class="lab-thumb" src="icons/app-teklif90.png" alt="Teklif90 simgesi" width="56" height="56" loading="lazy">
+              <div>
+                <span class="lab-badge" data-i18n="labBuilding">Yapım Aşamasında</span>
+                <h3>Teklif90</h3>
+              </div>
+            </div>
+            <p style="margin-top:12px;" data-i18n="appTeklif">Esnaf için sesle teklif hazırlama. Ustan işi anlatır, uygulama teklifi yazar ve WhatsApp'tan müşteriye yollar.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+            <button type="button" class="demo-btn" data-open-demo="teklif90" data-i18n="tryProto">Prototipi Dene</button>
+            <a class="lab-link" href="#tester" data-i18n="labTester">Tester ol &rarr;</a>
+          </div>
+        </article>
+
+        <article class="lab-card">
+          <div>
+            <div class="lab-head">
+              <img class="lab-thumb" src="icons/app-garajim.png" alt="Garajım simgesi" width="56" height="56" loading="lazy">
+              <div>
+                <span class="lab-badge" data-i18n="labBuilding">Yapım Aşamasında</span>
+                <h3>Garajım</h3>
+              </div>
+            </div>
+            <p style="margin-top:12px;" data-i18n="appGaraj">Bakım, muayene ve sigorta tarihlerini kilometre ve takvime göre hatırlatır. Yakıt kayıtlarından tüketimi hesaplar.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+            <button type="button" class="demo-btn" data-open-demo="garajim" data-i18n="tryProto">Prototipi Dene</button>
+            <a class="lab-link" href="#tester" data-i18n="labTester">Tester ol &rarr;</a>
+          </div>
+        </article>
+
+        <article class="lab-card">
+          <div>
+            <div class="lab-head">
+              <div>
+                <span class="lab-badge">UI / UX Konsept</span>
+                <h3>GSB Yurt &amp; Kredi Ödemeleri</h3>
+              </div>
+            </div>
+            <p style="margin-top:12px;" data-i18n="labKyk">Mobil öncelikli KYK ödeme ekranı yeniden tasarımı. Hızlı borç özeti, kart seçimi ve erişilebilir tipografi odaklı statik konsept.</p>
+          </div>
+          <a class="lab-link" href="kyk-konsept/index.html" target="_blank" rel="noopener" data-i18n="labOpen">Konsepti aç &rarr;</a>
+        </article>
+
+        <article class="lab-card">
+          <div>
+            <div class="lab-head">
+              <img class="lab-thumb" src="icons/paintblank.jpg" alt="Paint Blank görseli" width="56" height="56" loading="lazy">
+              <div>
+                <span class="lab-badge">Deneysel Oyun</span>
+                <h3>Paint Blank</h3>
+              </div>
+            </div>
+            <p style="margin-top:12px;" data-i18n="labPaint">Boş alanları boyama mekaniği üzerine kurulu sade mobil oyun deneyi. Gizlilik sayfası yayında, mağaza sayfası hazırlıkta.</p>
+          </div>
+          <a class="lab-link" href="paintblank/privacy.html" data-i18n="labPrivacy">Gizlilik politikası &rarr;</a>
+        </article>
+      </div>
     </div>
   </section>
 
   <section class="tester" id="tester">
     <div class="wrap"><div class="tester-grid">
       <div>
-        <h2>Tester olmak ister misin?</h2>
-        <p>Yeni uygulamalar Google Play'de yayına çıkmadan önce telefonlarda denenir. Sen de deneyip neyin eksik olduğunu söyleyebilirsin.</p>
-        <div class="cta">
-          <a class="btn" href="mailto:eesydev@gmail.com?subject=Tester%20ba%C5%9Fvurusu&body=Merhaba%2C%0A%0ATester%20olmak%20istiyorum.%0A%0APlay%20Store'da%20kulland%C4%B1%C4%9F%C4%B1m%20Google%20hesab%C4%B1%20(Gmail%20adresim)%3A%20%0ADenemek%20istedi%C4%9Fim%20uygulama%3A%20%0ATelefon%20modelim%3A%20%0A">E-posta ile başvur</a>
-        </div>
-        <p class="addr">Düğme açılmazsa şu adrese yaz: <b>eesydev@gmail.com</b></p>
+        <h2 data-i18n="testerTitle">Tester olmak ister misin?</h2>
+        <p data-i18n="testerDesc">Yeni uygulamalar Google Play'de yayına çıkmadan önce telefonlarda denenir. Aşağıdan bilgileri seç, mesajın tek tıkla hazırlansın.</p>
+
+        <form class="tester-form" id="testerForm">
+          <label>
+            <span data-i18n="tfApp">Denemek istediğin uygulama</span>
+            <select id="tfApp">
+              <option value="Teklif90">Teklif90</option>
+              <option value="Garajım">Garajım</option>
+              <option value="Paint Blank">Paint Blank</option>
+              <option value="Sajda (Beta)">Sajda (Beta)</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="tfGmail">Play Store Gmail adresin</span>
+            <input id="tfGmail" type="email" placeholder="ornek@gmail.com" autocomplete="email">
+          </label>
+          <label>
+            <span data-i18n="tfDevice">Telefon modelin</span>
+            <input id="tfDevice" type="text" placeholder="Samsung A54 / Pixel 7">
+          </label>
+          <div class="tester-form-actions">
+            <a class="btn" id="tfMailto" href="mailto:eesydev@gmail.com?subject=Tester%20ba%C5%9Fvurusu">E-posta uygulamasını aç</a>
+            <button type="button" class="btn-soft" id="tfCopy">Mesajı kopyala</button>
+          </div>
+          <div class="copy-msg" id="tfFeedback" role="status"></div>
+        </form>
       </div>
 
       <ol class="steps">
         <li>
           <div>
-            <h3>Bize e-posta yaz</h3>
-            <p>Play Store'da kullandığın Google hesabının adresini ve denemek istediğin uygulamayı yaz.</p>
+            <h3 data-i18n="step1t">Bilgilerini doldur</h3>
+            <p data-i18n="step1p">Play Store'da kullandığın Gmail adresini ve denemek istediğin uygulamayı seç.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3>Seni test listesine ekleyelim</h3>
-            <p>Adresini listeye ekler, test bağlantısını sana e-postayla göndeririz.</p>
+            <h3 data-i18n="step2t">Seni test listesine ekleyelim</h3>
+            <p data-i18n="step2p">Adresini kapalı test listesine ekler, kurulum bağlantısını sana yollarız.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3>Telefonunda dene</h3>
-            <p>Bağlantıdan uygulamayı yükle, kullan ve karşılaştığın sorunları bize yaz.</p>
+            <h3 data-i18n="step3t">Telefonunda dene</h3>
+            <p data-i18n="step3p">Bağlantıdan uygulamayı yükle, kullan ve karşılaştığın sorunları bize yaz.</p>
           </div>
         </li>
       </ol>
@@ -353,38 +750,554 @@
 <footer id="iletisim">
   <div class="wrap">
     <div class="contact">
-      <h2>Bir fikrin mi var?</h2>
+      <h2 data-i18n="footTitle">Bir fikrin mi var?</h2>
       <a class="mailaddr" href="mailto:eesydev@gmail.com">eesydev@gmail.com</a>
     </div>
 
     <div class="cols">
       <div>
         <h4>EESY Dev</h4>
-        <a href="https://github.com/emirsalih-dev" target="_blank" rel="noopener">GitHub</a>
+        <a class="withico" href="https://github.com/emirsalih-dev" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#ic-github"/></svg>GitHub</a>
+        <a class="withico" href="https://instagram.com/eesydev" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#ic-instagram"/></svg>Instagram (@eesydev)</a>
+        <a class="withico" href="https://www.instagram.com/cigkofteustasi.game/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#ic-instagram"/></svg>Çiğ Köfte Ustası IG</a>
+        <a class="withico" href="https://www.tiktok.com/@cigkofteustasi.game" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#ic-tiktok"/></svg>Çiğ Köfte Ustası TikTok</a>
       </div>
       <div>
-        <h4>Gizlilik politikaları</h4>
+        <h4 data-i18n="footPrivacy">Gizlilik politikaları</h4>
         <a href="cigkofte/privacy.html">Çiğ Köfte Ustası</a>
         <a href="sajda/privacy.html">Sajda</a>
         <a href="teklif90/privacy.html">Teklif90</a>
         <a href="fisci/privacy.html">Fişçi</a>
         <a href="garajim/privacy.html">Garajım</a>
+        <a href="paintblank/privacy.html">Paint Blank</a>
+      </div>
+      <div>
+        <h4 data-i18n="footData">Hesap &amp; Konsept</h4>
+        <a href="sajda/delete-account.html">Sajda hesap silme</a>
+        <a href="teklif90/delete-account.html">Teklif90 hesap silme</a>
+        <a href="kyk-konsept/index.html">KYK Ödeme Konsepti</a>
       </div>
     </div>
     <p class="copy">&copy; 2026 EESY Dev</p>
   </div>
 </footer>
 
+<dialog class="demo-modal" id="demoModal" aria-labelledby="dmTitle">
+  <div class="dm-head">
+    <h3 id="dmTitle">Canlı Demo</h3>
+    <button type="button" class="dm-close" id="dmClose" aria-label="Kapat">&times;</button>
+  </div>
+  <div class="dm-body" id="dmBody"></div>
+</dialog>
+
 <script>
-  // Çizim bitince maskeyi kaldır: köşelerde eksik kalan yer olmasın.
-  (function () {
-    var img = document.getElementById('logoImg');
-    var net = document.querySelector('.net');
-    if (!img || !net) return;
+(function () {
+  // 1) Hero logo mask reveal
+  var img = document.getElementById('logoImg');
+  var net = document.querySelector('.net');
+  if (img && net) {
     var done = function () { img.removeAttribute('mask'); };
     net.addEventListener('animationend', done);
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) done();
-  })();
+  }
+
+  // 2) Tiny Web Audio click helper (no external audio files)
+  var audioCtx = null;
+  function playTick(freq, dur) {
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq || 420, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (dur || 0.055));
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + (dur || 0.055));
+    } catch (e) {}
+  }
+
+  // 3) Çiğ Köfte Ustası 10-second mini game
+  var banner = document.getElementById('ckBanner');
+  var mg = document.getElementById('ckMiniGame');
+  var toggleBtn = document.getElementById('toggleMiniGame');
+  var closeBtn = document.getElementById('closeMiniGame');
+  var tapBtn = document.getElementById('mgTapBtn');
+  var restartBtn = document.getElementById('mgRestart');
+  var elTime = document.getElementById('mgTime');
+  var elWraps = document.getElementById('mgWraps');
+  var elTips = document.getElementById('mgTips');
+  var elBar = document.getElementById('mgBarFill');
+  var elHint = document.getElementById('mgHint');
+  var durumBoard = document.getElementById('durumBoard');
+  var mgStage = document.getElementById('mgStage');
+  var mgState = { wraps: 0, tips: 0, left: 10.0, timer: null, running: false, ended: false };
+
+  function resetMiniGame() {
+    clearInterval(mgState.timer);
+    mgState = { wraps: 0, tips: 0, left: 10.0, timer: null, running: false, ended: false };
+    elTime.textContent = '10.0';
+    elWraps.textContent = '0';
+    elTips.textContent = '0';
+    elBar.style.width = '100%';
+    tapBtn.disabled = false;
+    tapBtn.innerHTML = 'SAR! <small>(Tıkla / Space)</small>';
+    elHint.textContent = 'Her SAR\'a basınca dürüm sarılıp fırlar!';
+    durumBoard.querySelectorAll('.durum-fly').forEach(function (el) { el.remove(); });
+  }
+
+  function launchDurum(tipAdd) {
+    var flyer = document.createElement('div');
+    flyer.className = 'durum-item durum-fly';
+    flyer.innerHTML = '<span class="marul"></span><span class="kofte"></span>';
+    durumBoard.appendChild(flyer);
+    flyer.addEventListener('animationend', function () { flyer.remove(); });
+
+    var pop = document.createElement('span');
+    pop.className = 'mg-pop';
+    pop.textContent = '+' + tipAdd + ' ₺';
+    mgStage.appendChild(pop);
+    pop.addEventListener('animationend', function () { pop.remove(); });
+  }
+
+  function stepMiniGame() {
+    if (mgState.ended) return;
+    if (!mgState.running) {
+      mgState.running = true;
+      var started = performance.now();
+      mgState.timer = setInterval(function () {
+        var elapsed = (performance.now() - started) / 1000;
+        mgState.left = Math.max(0, 10 - elapsed);
+        elTime.textContent = mgState.left.toFixed(1);
+        elBar.style.width = (mgState.left * 10) + '%';
+        if (mgState.left <= 0) {
+          clearInterval(mgState.timer);
+          mgState.ended = true;
+          tapBtn.disabled = true;
+          tapBtn.innerHTML = 'SÜRE DOLDU! (' + mgState.wraps + ' Dürüm)';
+          elHint.textContent = 'Gerçek 3D tezgâh Google Play\'de seni bekliyor.';
+        }
+      }, 60);
+    }
+    mgState.wraps += 1;
+    var tipAdd = 45 + (mgState.wraps * 5);
+    mgState.tips += tipAdd;
+    elWraps.textContent = mgState.wraps;
+    elTips.textContent = mgState.tips;
+    playTick(320 + (mgState.wraps % 6) * 45, 0.045);
+    launchDurum(tipAdd);
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function () {
+      banner.hidden = true;
+      mg.hidden = false;
+      resetMiniGame();
+      tapBtn.focus();
+    });
+    closeBtn.addEventListener('click', function () {
+      clearInterval(mgState.timer);
+      mg.hidden = true;
+      banner.hidden = false;
+    });
+    tapBtn.addEventListener('click', stepMiniGame);
+    restartBtn.addEventListener('click', resetMiniGame);
+  }
+
+  // 4) Sajda Live OSM (.json.gz) Decompressor & Canvas Map
+  var canvas = document.getElementById('sajdaCanvas');
+  var ctx = canvas ? canvas.getContext('2d') : null;
+  var mapTitle = document.getElementById('mapRegionTitle');
+  var mapStats = document.getElementById('mapStats');
+  var hoverName = document.getElementById('mapHoverName');
+  var hoverCoord = document.getElementById('mapHoverCoord');
+  var plottedPoints = [];
+
+  async function loadSajdaIndex() {
+    try {
+      var res = await fetch('sajda/osm/v1/index.json');
+      if (!res.ok) return;
+      var idx = await res.json();
+      if (idx && idx.recordCount) {
+        document.getElementById('sajdaTotal').textContent = idx.recordCount.toLocaleString('tr-TR');
+      }
+    } catch (e) {}
+  }
+
+  async function loadSajdaCell(cell, label) {
+    if (!ctx) return;
+    mapTitle.textContent = label;
+    mapStats.textContent = 'Gzip verisi açılıyor…';
+    try {
+      if (typeof DecompressionStream === 'undefined') throw new Error('Tarayıcı DecompressionStream desteklemiyor');
+      var res = await fetch('sajda/osm/v1/' + cell + '.json.gz');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      var ds = new DecompressionStream('gzip');
+      var text = await new Response(res.body.pipeThrough(ds)).text();
+      var rows = JSON.parse(text);
+      drawPoints(rows);
+      mapStats.innerHTML = '<strong>' + rows.length.toLocaleString('tr-TR') + '</strong> doğrulanan nokta tarayıcıda canlı çizildi.';
+    } catch (err) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      mapStats.textContent = 'Canlı veri yüklenemedi (' + err.message + '). Sayfayı yerel sunucu (http://) üzerinden açın.';
+    }
+  }
+
+  function drawPoints(rows) {
+    var w = canvas.width, h = canvas.height, pad = 28;
+    ctx.clearRect(0, 0, w, h);
+    // Subtle grid
+    ctx.strokeStyle = 'rgba(0, 181, 205, 0.12)';
+    ctx.lineWidth = 1;
+    for (var gx = 0; gx <= w; gx += 64) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, h); ctx.stroke(); }
+    for (var gy = 0; gy <= h; gy += 64) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(w, gy); ctx.stroke(); }
+
+    var minLat = Infinity, maxLat = -Infinity, minLng = Infinity, maxLng = -Infinity;
+    for (var i = 0; i < rows.length; i++) {
+      var la = rows[i][2], ln = rows[i][3];
+      if (la < minLat) minLat = la; if (la > maxLat) maxLat = la;
+      if (ln < minLng) minLng = ln; if (ln > maxLng) maxLng = ln;
+    }
+    var spanLng = Math.max(0.01, maxLng - minLng);
+    var spanLat = Math.max(0.01, maxLat - minLat);
+    plottedPoints = [];
+
+    for (var j = 0; j < rows.length; j++) {
+      var r = rows[j];
+      var x = pad + ((r[3] - minLng) / spanLng) * (w - pad * 2);
+      var y = h - pad - ((r[2] - minLat) / spanLat) * (h - pad * 2);
+      plottedPoints.push({ x: x, y: y, name: r[1] || 'İsimsiz İbadet Noktası', lat: r[2], lng: r[3] });
+      ctx.fillStyle = 'rgba(0, 181, 205, 0.72)';
+      ctx.beginPath();
+      ctx.arc(x, y, 2.3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    if (plottedPoints.length) {
+      hoverName.textContent = plottedPoints[0].name;
+      hoverCoord.textContent = plottedPoints[0].lat.toFixed(4) + ', ' + plottedPoints[0].lng.toFixed(4);
+    }
+  }
+
+  if (canvas) {
+    canvas.addEventListener('mousemove', function (e) {
+      if (!plottedPoints.length) return;
+      var rect = canvas.getBoundingClientRect();
+      var mx = (e.clientX - rect.left) * (canvas.width / rect.width);
+      var my = (e.clientY - rect.top) * (canvas.height / rect.height);
+      var best = null, bestD = 196;
+      for (var i = 0; i < plottedPoints.length; i++) {
+        var dx = plottedPoints[i].x - mx, dy = plottedPoints[i].y - my;
+        var d = dx * dx + dy * dy;
+        if (d < bestD) { bestD = d; best = plottedPoints[i]; }
+      }
+      if (best) {
+        hoverName.textContent = best.name;
+        hoverCoord.textContent = best.lat.toFixed(4) + ', ' + best.lng.toFixed(4);
+      }
+    });
+    document.querySelectorAll('.city-pill').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.city-pill').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', 'true');
+        loadSajdaCell(btn.dataset.cell, btn.dataset.label);
+      });
+    });
+    loadSajdaIndex();
+    loadSajdaCell('sxk', 'İstanbul (sxk)');
+  }
+
+  // 5) App Demo Modal (Zikirmatik, Teklif90, Fişçi, Garajım)
+  var modal = document.getElementById('demoModal');
+  var dmTitle = document.getElementById('dmTitle');
+  var dmBody = document.getElementById('dmBody');
+  document.getElementById('dmClose').addEventListener('click', function () { modal.close(); });
+  modal.addEventListener('click', function (e) { if (e.target === modal) modal.close(); });
+
+  function openDemo(key) {
+    if (key === 'zikirmatik') {
+      dmTitle.textContent = 'Zikirmatik — Canlı Boncuk Şeridi';
+      var count = 0;
+      var phases = ['Sübhanallah', 'Elhamdülillah', 'Allahu Ekber'];
+      dmBody.innerHTML =
+        '<div class="tasbih-box">' +
+          '<div class="tasbih-dhikr" id="tbPhase">Sübhanallah (1/33)</div>' +
+          '<div class="tasbih-count" id="tbCount">0</div>' +
+          '<svg class="tasbih-svg" id="tbSvg" viewBox="0 0 360 120" role="button" tabindex="0" aria-label="Boncuk çek">' +
+            '<path id="tbCurve" d="M 18 92 Q 180 18 342 92" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="3" stroke-linecap="round"/>' +
+            '<g id="tbBeads"></g>' +
+          '</svg>' +
+          '<p style="margin:0;font-size:.88rem;color:#C5D4F0;">Boncuğa tıkla veya Space tuşuna bas.</p>' +
+        '</div>' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;">' +
+          '<button type="button" class="btn-soft" id="tbReset">Sıfırla</button>' +
+          '<a class="btn" href="https://play.google.com/store/apps/details?id=com.eesydev.zikirmatik3dtesbih&hl=tr" target="_blank" rel="noopener">3D Sürümü İndir</a>' +
+        '</div>';
+
+      var beadsG = document.getElementById('tbBeads');
+      var curve = document.getElementById('tbCurve');
+      var totalLen = curve.getTotalLength();
+      var ns = 'http://www.w3.org/2000/svg';
+      var beadNodes = [];
+      for (var bi = 0; bi < 8; bi++) {
+        var g = document.createElementNS(ns, 'g');
+        var mainC = document.createElementNS(ns, 'circle');
+        mainC.setAttribute('stroke', '#022B69');
+        mainC.setAttribute('stroke-width', '2.5');
+        var shineC = document.createElementNS(ns, 'circle');
+        shineC.setAttribute('fill', 'rgba(255,255,255,.65)');
+        g.appendChild(mainC);
+        g.appendChild(shineC);
+        beadsG.appendChild(g);
+        beadNodes.push({ g: g, main: mainC, shine: shineC });
+      }
+
+      var curShift = 0, targetShift = 0, rafId = 0;
+      function drawBeads() {
+        var fracShift = curShift - Math.floor(curShift);
+        for (var i = 0; i < 8; i++) {
+          var slot = (i - 1) + fracShift;
+          var frac = 0.08 + (slot / 6) * 0.84;
+          var pt = curve.getPointAtLength(Math.max(0, Math.min(1, frac)) * totalLen);
+          var distCenter = Math.abs(slot - 3);
+          var focus = Math.max(0, 1 - distCenter);
+          var r = 12 + 4.5 * focus;
+          var alpha = 1;
+          if (slot < 0) alpha = Math.max(0, 1 + slot);
+          else if (slot > 6) alpha = Math.max(0, 7 - slot);
+
+          var node = beadNodes[i];
+          node.g.setAttribute('opacity', alpha.toFixed(3));
+          node.main.setAttribute('cx', pt.x.toFixed(2));
+          node.main.setAttribute('cy', pt.y.toFixed(2));
+          node.main.setAttribute('r', r.toFixed(2));
+          node.main.setAttribute('fill', focus > 0.45 ? '#00B5CD' : '#FAF3DD');
+          node.shine.setAttribute('cx', (pt.x - r * 0.3).toFixed(2));
+          node.shine.setAttribute('cy', (pt.y - r * 0.3).toFixed(2));
+          node.shine.setAttribute('r', (r * 0.24).toFixed(2));
+        }
+      }
+      function animateBeads() {
+        var diff = targetShift - curShift;
+        if (Math.abs(diff) < 0.002) {
+          curShift = targetShift;
+          drawBeads();
+          rafId = 0;
+          return;
+        }
+        curShift += diff * 0.18;
+        drawBeads();
+        rafId = requestAnimationFrame(animateBeads);
+      }
+      drawBeads();
+
+      function tickTasbih() {
+        count += 1;
+        document.getElementById('tbCount').textContent = count;
+        var ph = phases[Math.floor(((count - 1) % 99) / 33)];
+        var step = ((count - 1) % 33) + 1;
+        document.getElementById('tbPhase').textContent = ph + ' (' + step + '/33)';
+        playTick(260 + (step % 3) * 25, 0.04);
+        if (navigator.vibrate) navigator.vibrate(15);
+        targetShift += 1;
+        if (!rafId) rafId = requestAnimationFrame(animateBeads);
+      }
+      var tbSvg = document.getElementById('tbSvg');
+      tbSvg.addEventListener('click', tickTasbih);
+      tbSvg.addEventListener('keydown', function (e) {
+        if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); tickTasbih(); }
+      });
+      document.getElementById('tbReset').addEventListener('click', function () {
+        count = 0;
+        document.getElementById('tbCount').textContent = '0';
+        document.getElementById('tbPhase').textContent = 'Sübhanallah (1/33)';
+      });
+    } else if (key === 'teklif90') {
+      dmTitle.textContent = 'Teklif90 — Sesli Teklif Simülatörü';
+      dmBody.innerHTML =
+        '<p style="margin:0;color:var(--muted);">Örnek bir usta cümlesi seç veya kendin yaz:</p>' +
+        '<div class="preset-row">' +
+          '<button type="button" class="preset-chip" data-t="3 oda plastik boya, tavan ve alçı tamiri dahil 18.500 TL">Boya (18.500 TL)</button>' +
+          '<button type="button" class="preset-chip" data-t="Kombi yıllık bakım ve 6 petek temizliği 3.400 TL">Kombi (3.400 TL)</button>' +
+          '<button type="button" class="preset-chip" data-t="Banyo zemin seramik değişimi ve derz yenileme 24.000 TL">Seramik (24.000 TL)</button>' +
+        '</div>' +
+        '<input id="t90In" type="text" value="3 oda plastik boya, tavan ve alçı tamiri dahil 18.500 TL" style="padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);font:inherit;">' +
+        '<button type="button" class="btn" id="t90Gen">WhatsApp Teklif Kartı Oluştur</button>' +
+        '<div class="wa-card" id="t90Out"></div>' +
+        '<button type="button" class="btn-soft" id="t90Copy">Teklifi Kopyala</button>';
+
+      function buildQuote() {
+        var raw = document.getElementById('t90In').value.trim();
+        var match = raw.match(/([\d.]+)\s*(tl|₺)?/gi);
+        var priceStr = match ? match[match.length - 1].replace(/[^\d]/g, '') : '15000';
+        var net = parseInt(priceStr, 10) || 15000;
+        var kdv = Math.round(net * 0.2);
+        document.getElementById('t90Out').textContent =
+          '📋 FİYAT TEKLİFİ — Teklif90\n' +
+          'İş Kalemi: ' + raw + '\n' +
+          'Ara Toplam: ' + net.toLocaleString('tr-TR') + ' ₺\n' +
+          'KDV (%20): ' + kdv.toLocaleString('tr-TR') + ' ₺\n' +
+          'Genel Toplam: ' + (net + kdv).toLocaleString('tr-TR') + ' ₺\n' +
+          'Geçerlilik: 7 gün · İşçilik garantili';
+      }
+      buildQuote();
+      dmBody.querySelectorAll('.preset-chip').forEach(function (c) {
+        c.addEventListener('click', function () {
+          document.getElementById('t90In').value = c.dataset.t;
+          buildQuote();
+        });
+      });
+      document.getElementById('t90Gen').addEventListener('click', buildQuote);
+      document.getElementById('t90Copy').addEventListener('click', function () {
+        navigator.clipboard && navigator.clipboard.writeText(document.getElementById('t90Out').textContent);
+        this.textContent = 'Kopyalandı!';
+      });
+    } else if (key === 'fisci') {
+      dmTitle.textContent = 'Fişçi — Çevrimdışı Fiş Ayrıştırma';
+      dmBody.innerHTML =
+        '<p style="margin:0;color:var(--muted);">Örnek fiş seç, cihaz içi kategori analizini gör:</p>' +
+        '<div class="preset-row">' +
+          '<button type="button" class="preset-chip" data-f="Market|MİGROS TİCARET|684,50 ₺|Gıda %78, Temizlik %22">Market Fişi</button>' +
+          '<button type="button" class="preset-chip" data-f="Kafe|KAHVE DÜNYASI|215,00 ₺|Yeme-İçme %100">Kahve Fişi</button>' +
+          '<button type="button" class="preset-chip" data-f="Akaryakıt|OPET A.Ş.|1.450,00 ₺|Ulaşım %100">Yakıt Fişi</button>' +
+        '</div>' +
+        '<div class="wa-card" id="fisOut" style="background:#EFF6FF;border-color:#BFDBFE;color:#1E3A8A;"></div>';
+      function showFis(val) {
+        var parts = val.split('|');
+        document.getElementById('fisOut').textContent =
+          '🧾 OKUNAN FİŞ (Çevrimdışı OCR)\nİşletme: ' + parts[1] + '\nKategori: ' + parts[0] + '\nToplam Tutar: ' + parts[2] + '\nDağılım: ' + parts[3];
+      }
+      showFis('Market|MİGROS TİCARET|684,50 ₺|Gıda %78, Temizlik %22');
+      dmBody.querySelectorAll('.preset-chip').forEach(function (b) {
+        b.addEventListener('click', function () { showFis(b.dataset.f); });
+      });
+    } else if (key === 'garajim') {
+      dmTitle.textContent = 'Garajım — Bakım Sayaç Önizlemesi';
+      dmBody.innerHTML =
+        '<div class="calc-grid">' +
+          '<label style="display:grid;gap:4px;font-size:.88rem;font-weight:600;color:var(--navy);">Güncel KM<input id="gNow" type="number" value="118400" style="padding:9px;border-radius:10px;border:1.5px solid var(--line);"></label>' +
+          '<label style="display:grid;gap:4px;font-size:.88rem;font-weight:600;color:var(--navy);">Son Bakım KM<input id="gLast" type="number" value="110000" style="padding:9px;border-radius:10px;border:1.5px solid var(--line);"></label>' +
+        '</div>' +
+        '<div style="background:var(--tint);padding:14px;border-radius:14px;display:grid;gap:8px;">' +
+          '<div id="gStatus" style="font-weight:700;color:var(--navy);"></div>' +
+          '<div class="meter"><i id="gBar"></i></div>' +
+        '</div>';
+      function updateGaraj() {
+        var now = parseInt(document.getElementById('gNow').value, 10) || 0;
+        var last = parseInt(document.getElementById('gLast').value, 10) || 0;
+        var diff = Math.max(0, now - last);
+        var rem = 10000 - diff;
+        var pct = Math.min(100, Math.round((diff / 10000) * 100));
+        document.getElementById('gBar').style.width = pct + '%';
+        document.getElementById('gStatus').textContent = rem > 0
+          ? 'Yağ & filtre bakımına ' + rem.toLocaleString('tr-TR') + ' km kaldı (%' + pct + ').'
+          : 'Bakım zamanı ' + Math.abs(rem).toLocaleString('tr-TR') + ' km geçti!';
+      }
+      updateGaraj();
+      document.getElementById('gNow').addEventListener('input', updateGaraj);
+      document.getElementById('gLast').addEventListener('input', updateGaraj);
+    }
+    modal.showModal();
+  }
+
+  document.querySelectorAll('[data-open-demo]').forEach(function (btn) {
+    btn.addEventListener('click', function () { openDemo(btn.dataset.openDemo); });
+  });
+
+  // 6) Frictionless Tester Builder
+  var tfApp = document.getElementById('tfApp');
+  var tfGmail = document.getElementById('tfGmail');
+  var tfDevice = document.getElementById('tfDevice');
+  var tfMailto = document.getElementById('tfMailto');
+  var tfCopy = document.getElementById('tfCopy');
+  var tfFeedback = document.getElementById('tfFeedback');
+
+  function buildTesterBody() {
+    return 'Merhaba,\n\nTester olmak istiyorum.\n\n' +
+      'Play Store Gmail hesabım: ' + (tfGmail.value.trim() || '(buraya yazın)') + '\n' +
+      'Denemek istediğim uygulama: ' + tfApp.value + '\n' +
+      'Telefon modelim: ' + (tfDevice.value.trim() || '(model)');
+  }
+  function refreshMailto() {
+    tfMailto.href = 'mailto:eesydev@gmail.com?subject=' + encodeURIComponent('Tester başvurusu: ' + tfApp.value) + '&body=' + encodeURIComponent(buildTesterBody());
+  }
+  [tfApp, tfGmail, tfDevice].forEach(function (el) { el.addEventListener('input', refreshMailto); });
+  refreshMailto();
+  tfCopy.addEventListener('click', function () {
+    var msg = buildTesterBody();
+    if (navigator.clipboard) navigator.clipboard.writeText(msg);
+    tfFeedback.textContent = 'Başvuru metni panoya kopyalandı — eesydev@gmail.com adresine yapıştırabilirsin.';
+  });
+
+  // 7) TR / EN Language Switcher
+  var dict = {
+    en: {
+      navApps: 'Apps',
+      navMap: 'Sajda Map',
+      navTester: 'Become a Tester',
+      navContact: 'Contact',
+      heroLede: 'We build focused mobile apps and games. Each app does one job cleanly and fast.',
+      heroBtn: 'Explore apps',
+      pulseLive: 'live on Google Play',
+      pulseOsm: 'Sajda prayer spots',
+      pulseFocus: 'In progress:',
+      ckDesc: 'Name your shop, open the shutter. Knead, roll and wrap fast for colorful customers, collect tips and grow your counter.',
+      ckState: 'Live on Google Play',
+      ckPlay: 'Try now',
+      ckMiniBtn: 'Play 10s Mini Game',
+      appsTitle: 'Apps',
+      appsSub: 'Live on Google Play — click "Try Live" to test in your browser.',
+      appZikir: 'Tactile 33-bead strip, fast dhikr counter, prayer times and missed prayer tracker.',
+      appSajda: 'Discover, verify and share mosques and open prayer spots. Community-backed prayer map.',
+      appFisci: 'Offline expense tracker that reads receipts from photos with monthly charts.',
+      appTeklif: 'Voice-to-quote tool for tradespeople. Describe the job, send a clean quote on WhatsApp.',
+      appGaraj: 'Tracks maintenance, inspection and insurance dates by mileage and calendar.',
+      stLive: 'Live',
+      stSoon: 'Soon',
+      tryLive: 'Try Live',
+      inspectData: 'Inspect Data',
+      tryProto: 'Try Prototype',
+      mapTitle: 'Sajda Live Data Showcase',
+      mapSub: 'Decompresses the real geohash (.json.gz) files in this repo right inside your browser.',
+      mapBadge: 'Zero Backend · DecompressionStream',
+      mapDesc: 'Pick a city to fetch its sajda/osm/v1/*.json.gz file, gunzip in-browser and plot verified spots.',
+      labSub: 'Apps currently in development, UI concepts, and side experiments.',
+      labBuilding: 'In Development',
+      labTester: 'Join test →',
+      labKyk: 'Mobile-first redesign concept for GSB dorm & loan payments with accessible typography.',
+      labOpen: 'Open concept →',
+      labPaint: 'Minimal puzzle/painting mobile experiment. Privacy policy is live; store release pending.',
+      labPrivacy: 'Privacy policy →',
+      testerTitle: 'Want to be a tester?',
+      testerDesc: 'Apps are tested on real phones before Google Play release. Fill below to prepare your request in one click.',
+      tfApp: 'App you want to test',
+      tfGmail: 'Your Play Store Gmail',
+      tfDevice: 'Phone model',
+      step1t: 'Fill in your details',
+      step1p: 'Choose the app and enter your Play Store Gmail address.',
+      step2t: 'We add you to closed testing',
+      step2p: 'We add your Gmail to the test track and send the install link.',
+      step3t: 'Try it on your phone',
+      step3p: 'Install via the link and tell us what feels rough or missing.',
+      footTitle: 'Got an idea?',
+      footPrivacy: 'Privacy policies',
+      footData: 'Account & Concepts'
+    }
+  };
+  var orig = {};
+  document.querySelectorAll('[data-i18n]').forEach(function (el) { orig[el.dataset.i18n] = el.textContent; });
+  var curLang = 'tr';
+  document.getElementById('langBtn').addEventListener('click', function () {
+    curLang = curLang === 'tr' ? 'en' : 'tr';
+    document.documentElement.lang = curLang;
+    this.textContent = curLang === 'tr' ? 'EN' : 'TR';
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.dataset.i18n;
+      el.textContent = curLang === 'en' ? (dict.en[k] || orig[k]) : orig[k];
+    });
+  });
+})();
 </script>
 </body>
 </html>
